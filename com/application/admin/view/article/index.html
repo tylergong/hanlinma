@@ -1,0 +1,162 @@
+{extend name='base'/}
+{block name='content'}
+<ol class="breadcrumb" style="background-color: #f9f9f9;padding:8px 0;margin-bottom:10px;">
+    <li>
+        <a href="###"><i class="fa fa-cogs"></i>
+            文章管理</a>
+    </li>
+    <li class="active">
+        <a href="###">文章列表</a>
+    </li>
+</ol>
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="###">文章列表</a></li>
+    <li><a href="{:url('store')}">文章添加</a></li>
+</ul>
+
+<div class="breadcrumb">
+    <form action="{:url('index')}" method="post">
+        <span>标题：<input type="text" id="title" name="title" value="{:input('param.title')}"></span>
+        <span>栏目：<select class="js-example-basic-single" name="cid">
+            <option value="0">请选择栏目</option>
+            {foreach name='cateData' key='k' item='v'}
+            <option value="{$v['id']}" {if condition="input('param.cid')==$v['id']"
+                    }selected{/if}>{$v['_cname']}</option>
+            {/foreach}
+        </select></span>
+        <button type="submit" class="btn btn-primary">查询</button>
+    </form>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th width="5%">编号</th>
+                <th width="40%">标题</th>
+                <th width="10%">作者</th>
+                <th width="8%">栏目</th>
+                <th width="10%" id="clickSort" style="cursor:pointer">点击次数
+                    {if condition="input('param.order')=='asc'"}
+                    <li class="fa fa-angle-down hidden"></li>
+                    <li class="fa fa-angle-up "></li>
+                    {else /}
+                    <li class="fa fa-angle-down "></li>
+                    <li class="fa fa-angle-up hidden"></li>
+                    {/if}
+                </th>
+                <th width="10%" id="timeSort" style="cursor:pointer">添加时间
+                    {if condition="input('param.order')=='asc'"}
+                    <li class="fa fa-angle-down hidden"></li>
+                    <li class="fa fa-angle-up "></li>
+                    {else /}
+                    <li class="fa fa-angle-down "></li>
+                    <li class="fa fa-angle-up hidden"></li>
+                    {/if}
+                </th>
+                <th width="10%">操作</th>
+            </tr>
+            </thead>
+            <tbody id="a_list">
+            {foreach name='field' key='k' item='v'}
+            <tr>
+                <td>{$v['id']}</td>
+                <td>{$v['title']}</td>
+                <td>{$v['author']}</td>
+                <td>{$v['cname']}</td>
+                <td>{$v['click_num']}</td>
+                <td>{$v['create_time']|date="Y-m-d H:i:s",###}</td>
+                <td>
+                    <div class="btn-group">
+                        <button data-toggle="dropdown" class="btn btn-primary btn-xs dropdown-toggle">操作 <span
+                                class="caret"></span></button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="{:url('edit',['id'=>$v['id']])}">编辑</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{:url('delToRecycle',['id'=>$v['id']])}">删除到回收站</a></li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="pagination pagination-sm pull-right" id="a_list_page">
+    {$field->render()}
+</div>
+<script>
+    function changeShow(obj, old_show, id) {
+        var show = $(obj).val();
+        if (!show && old_show == show) {
+            $(obj).val(old_show);
+            return false;
+        }
+        swal({
+                title: "确定要修改文章显示状态吗？",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+                closeOnConfirm: false,
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.post("{:url('changeShow')}", {is_show: show, id: id}, function (res) {
+                        if (res.code) {
+                            swal({
+                                title: res.msg,
+                                type: "success",
+                                confirmButtonText: "知道了",
+                                closeOnConfirm: false,
+                            }, function (isConfirm) {
+                                if (isConfirm) {
+                                    window.location.reload();
+                                }
+                            });
+                        } else {
+                            swal({
+                                title: res.msg,
+                                type: "error",
+                                confirmButtonColor: "#DD6B55",
+                                confirmButtonText: "知道了",
+                                closeOnConfirm: false,
+                            }, function (isConfirm) {
+                                if (isConfirm) {
+                                    window.location.reload();
+                                }
+                            });
+                        }
+                    }, 'json')
+                } else {
+                    window.location.reload();
+                }
+            });
+    }
+
+    // 按 点击次数 排序 \ 按 添加时间 排序
+    $(document).on('click', '#clickSort,#timeSort', function () {
+        $(this).children('.fa-angle-up').toggleClass('hidden');
+        $(this).children('.fa-angle-down').toggleClass('hidden');
+        var sort = 'create_time';
+        if ($(this).attr('id') == 'clickSort') {
+            sort = 'click_num';
+        }
+        var order = 'asc';
+        if ($(this).children('.fa-angle-up').hasClass('hidden')) {
+            order = 'desc';
+        }
+        var title = "{:input('param.title')}";
+        var page = "{:input('param.page')}";
+        var cid = "{:input('param.cid')}";
+        $.post("{:url('sort')}", {sort: sort, order: order, title: title, cid: cid, page: page}, function (res) {
+            $('#a_list').html(res.html);
+            $('#a_list_page').html(res.page)
+        })
+    });
+
+</script>
+{/block}
