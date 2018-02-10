@@ -1,0 +1,87 @@
+<div class="feedback-box">
+    <div class="container">
+        <div class="title-box">
+            <h2>
+                立即咨询
+            </h2>
+            <p>
+                精湛的技术，优秀的服务，很高兴您能成为我们的合作伙伴，一起努力，一起成长
+            </p>
+        </div>
+        <div class="feedback-cut">
+            <div class="feedback-tag">
+                        <span>
+                            <i>
+                                立即咨询
+                            </i>
+                        </span>
+                <img src="__STATIC__/index/picture/bm.png">
+                <font>
+                    立即咨询
+                </font>
+            </div>
+            <div class="feedback-title">
+                <b>
+                    填写表单
+                </b>
+                <p>
+                    ( 提示：
+                    <i>
+                        *
+                    </i>
+                    为必填选项 )
+                </p>
+            </div>
+            <div class="feedback-form">
+                <form action="/plus/diy.php" enctype="multipart/form-data" method="post"
+                      class="met-form met-form-validation">
+                    <input type="hidden" name="action" value="post"/>
+                    <input type="hidden" name="diyid" value="1"/>
+                    <input type="hidden" name="do" value="2"/>
+                    <div class="form-group">
+                        <label class="control-label ftype_input">
+                            您的姓名
+                        </label>
+                        <div>
+                            <input name='name' class='form-control' type='text' placeholder='' data-fv-notempty="true"
+                                   data-fv-message="不能为空"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ftype_input">
+                            联系电话
+                        </label>
+                        <div>
+                            <input name='tel' class='form-control' type='text' placeholder='' data-fv-notempty="true"
+                                   data-fv-message="不能为空"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ftype_textarea">
+                            备注
+                        </label>
+                        <div>
+                                    <textarea name='content' class='form-control' data-fv-notempty="true"
+                                              data-fv-message="不能为空" placeholder='' rows='5'>
+                                    </textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" name="dede_fields" value="name,text;tel,text;content,multitext"
+                    />
+                    <input type="hidden" name="dede_fieldshash" value="8076bff3cb852fc847abc72e0eef105a"
+                    />
+                    <div class="form-group ftype_button">
+                        <label>
+                            &nbsp;
+                        </label>
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block btn-squared">
+                                确认提交
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

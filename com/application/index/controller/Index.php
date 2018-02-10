@@ -16,6 +16,14 @@ class Index extends Controller {
     public function article() {
         $id = input('param.id\d');
         echo $id;
+        return $this->fetch();
     }
 
+    public function caseList() {
+        return $this->fetch();
+    }
+
+    public function actList() {
+        return $this->fetch();
+    }
 }

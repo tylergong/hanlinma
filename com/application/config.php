@@ -15,7 +15,7 @@ return [
     // +----------------------------------------------------------------------
 
     // 应用调试模式
-    'app_debug'              => false,
+    'app_debug'              => true,
     // 应用Trace
     'app_trace'              => false,
     // 应用模式状态
@@ -236,4 +236,36 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+
+    // 验证码设置
+    'captcha'               =>  [
+        // 验证码位数
+        'length'   => 4,
+        // 验证码字体大小(px)
+        'fontSize' => 16,
+        // 验证码图片高度
+        'imageH'   => 34,
+        // 验证码图片宽度
+        'imageW'   => 130,
+    ],
+
+    // +----------------------------------------------------------------------
+    // | auth 权限验证
+    // +----------------------------------------------------------------------
+    'auth_config'           =>  true,               // 是否开启自定义配置文件覆盖
+    'auth'                  =>  [
+        'AUTH_ON' => true,                          // 认证开关
+        'AUTH_TYPE' => 1,                           // 认证方式，1为实时认证；2为登录认证。
+        'AUTH_GROUP' => 'group',                 // 用户组数据表名
+        'AUTH_GROUP_ACCESS' => 'admin_group',    // 用户-用户组关系表
+        'AUTH_RULE' => 'rules',                  // 权限规则表
+        'AUTH_USER' => 'admins'                   // 用户信息表
+    ],
+
+
+    // 管理员加密、解密秘钥
+    'password_key'             =>  '2kdiie8@8yhfj',    // 用户密码加密秘钥
+
+    // 添加应用函数
+    'extra_file_list'        => [ APP_PATH . 'helper.php', THINK_PATH . 'helper.php', APP_PATH . 'common/function.php'],
 ];
