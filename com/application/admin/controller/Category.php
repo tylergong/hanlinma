@@ -78,7 +78,12 @@ class Category extends Common {
 
     // 删除
     public function del() {
-        $res = $this->db->del(input('get.id/d'));
+        $id = input('get.id/d');
+        if ($id <= 25) {
+            $this->error('系统固定分类，无法删除');
+            exit;
+        }
+        $res = $this->db->del();
         if ($res['valid']) {
             $this->success($res['msg'], 'index');
             exit;

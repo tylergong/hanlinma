@@ -11,9 +11,68 @@ class Lists extends Common {
     public function index() {
         $cid = input('param.cid');
         if ($cid == 24) {
+            // 文章列表
+            // 获取当前分类信息
+            $categoryData = db('category')->where('id', $cid)->find();
+            $this->assign('categoryData', $categoryData);
+
+            // 获取当前栏目下文章列表
+            $articleData = db('article')->alias('a')
+                ->where('a.cid', $cid)
+                ->where('a.is_del', 0)
+                ->order('create_time desc')
+                ->field('a.id,a.title,a.create_time,a.author,a.content,a.thumb,a.click_num,a.cid')
+                ->paginate(6)->each(function ($v, $k) {
+                    // 替换掉各种标签 空格 换行符等
+                    $tmp = preg_replace(array('/<img(.*?)>/', '/<(.*?)>/', '/<\/(.*?)>/', '/<br \/>/', '/&nbsp;/', '/&lt;(.*?)&gt;/'), '', $v['content']);
+                    // 然后在从内容中获取100字摘要
+                    $v['digest'] = mb_substr($tmp, 0, 200, 'utf-8');
+                    return $v;
+                });
+            $this->assign('articleData', $articleData);
+
             return $this->fetch('actList');
         } else if (in_array($cid, [16, 17, 18, 19, 20])) {
+            // 案例列表
+            // 获取当前分类信息
+            $categoryData = db('category')->where('id', $cid)->find();
+            if ($categoryData['pid'] == 0) {
+                $categoryFatherData = $categoryData;
+                $categorySonData = db('category')->where('pid', $cid)->where('is_show', 1)->order('csort asc')->select();
+                foreach ($categorySonData as $v) {
+                    $cids[] = $v['id'];
+                }
+                array_push($cids, $cid);
+            } else {
+                $categoryFatherData = db('category')->where('id', $categoryData['pid'])->find();
+                $categorySonData = db('category')->where('pid', $categoryData['pid'])->where('is_show', 1)->order('csort asc')->select();
+            }
+            $this->assign('categoryData', $categoryData);
+            $this->assign('categoryFatherData', $categoryFatherData);
+            $this->assign('categorySonData', $categorySonData);
+
+            // 获取当前栏目下文章列表
+            $articleData = db('article')->alias('a');
+            if ($categoryData['pid'] == 0) {
+                $articleData = $articleData->whereIn('a.cid', $cids);
+            } else {
+                $articleData = $articleData->where('a.cid', $cid);
+            }
+            $articleData = $articleData->where('a.is_del', 0)
+                ->order('create_time desc')
+                ->field('a.id,a.title,a.create_time,a.author,a.content,a.thumb,a.click_num,a.cid')
+                ->paginate(12)->each(function ($v, $k) {
+                    // 替换掉各种标签 空格 换行符等
+                    $tmp = preg_replace(array('/<img(.*?)>/', '/<(.*?)>/', '/<\/(.*?)>/', '/<br \/>/', '/&nbsp;/', '/&lt;(.*?)&gt;/'), '', $v['content']);
+                    // 然后在从内容中获取100字摘要
+                    $v['digest'] = mb_substr($tmp, 0, 200, 'utf-8');
+                    return $v;
+                });
+            $this->assign('articleData', $articleData);
+
             return $this->fetch('caseList');
+        } else {
+            $this->redirect('/');
         }
     }
 }

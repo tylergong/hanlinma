@@ -25,6 +25,10 @@ class Common extends Controller {
         // 3、获取友情链接数据
         $linkData = $this->loadLinkData();
         $this->assign('_linkData', $linkData);
+        // 4、获取最新动态数据
+        $newArticleData = $this->loadNewArticleData();
+        $this->assign('_newArticleData', $newArticleData);
+
     }
 
     // 获取网站配置项数据
@@ -52,6 +56,11 @@ class Common extends Controller {
     // 获取友情链接数据
     public function loadLinkData() {
         return db('flinks')->order('orderby desc')->limit(6)->select();
+    }
+
+    // 获取最新动态数据（分类为24的新闻资讯）
+    public function loadNewArticleData() {
+        return db('article')->field('id,title')->where('cid', 24)->order('create_time desc')->limit(6)->select();
     }
 
 }

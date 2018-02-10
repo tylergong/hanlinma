@@ -15,86 +15,74 @@
                         <div class="row">
                             <ol class="breadcrumb">
                                 <li>
-                                    <a href="https://show.metinfo.cn/muban/M1156015/376/" title="首页">
+                                    <a href="{:url('/')}" title="首页">
                                         <i class="icon wb-home" aria-hidden="true"></i>首页
                                     </a>
                                 </li>
+                                {if condition="$articleData['father']['cname']"}
                                 <li class="dropdown">
-
-                                    <a href="../news/" title="新闻资讯" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">新闻资讯 <i class="caret"></i></a>
-                                    <ul class="dropdown-menu bullet">
-
-                                        <li><a href="../news/" title="全部">全部</a></li>
-
-
-                                        <li><a href="../news/news.php?lang=cn&amp;class2=106" title="会馆活动">会馆活动</a></li>
-
-                                        <li><a href="../news/news.php?lang=cn&amp;class2=107" title="瑜伽资讯">瑜伽资讯</a></li>
-
-                                        <li><a href="../news/news.php?lang=cn&amp;class2=108" title="常见问题">常见问题</a></li>
-
-                                    </ul>
-
+                                    {$articleData['father']['cname']}
                                 </li>
-
+                                {/if}
                                 <li class="dropdown">
-
-                                    <a href="../news/news.php?lang=cn&amp;class2=106" title="会馆活动">
-                                        会馆活动
+                                    {if condition="$articleData['pid']==21 || $articleData['pid']==16"}
+                                    <a href="{:url('index/Lists/index',['cid'=>$articleData['cid']])}"
+                                       title="{$articleData['cname']}">
+                                        {$articleData['cname']}
                                     </a>
-
+                                    {else/}
+                                    {$articleData['cname']}
+                                    {/if}
                                 </li>
-
-
                             </ol>
                         </div>
                     </div>
                 </div>
 
                 <div class="met-shownews-header">
-                    <h1>2018第四届“瑜伽之爱”年度盛典 相约北京</h1>
+                    <h1>{$articleData['title']}</h1>
                     <div class="info">
-                        <span><i class="fa fa-calendar"></i>2017-11-12 16:57:43</span>
-                        <span><i class="fa fa-pencil-square"></i>admin</span>
-                        <span><i class="icon wb-eye"></i>72</span>
+                        <span><i class="fa fa-calendar"></i>{$articleData['create_time']|date="Y-m-d H:i:s",###}</span>
+                        <span><i class="fa fa-pencil-square"></i>{$articleData['author']}</span>
+                        <span><i class="icon wb-eye"></i>{$articleData['click_num']}</span>
                     </div>
                 </div>
-                <div class="met-editor lazyload clearfix"><div class="editorlightgallery">
-                    <div><p hiragino="" sans="" microsoft="" white-space:="" text-align:=""><img class="" height="200" data-original="https://images.metinfo.cn/m/M1156015/376/upload/M1156015/376/201711/1510476765281815.jpg" alt="图片关键词" src="https://images.metinfo.cn/m/M1156015/376/upload/M1156015/376/201711/1510476765281815.jpg" style="display: inline;"></p><p hiragino="" sans="" microsoft="" white-space:="">亲爱的伽人们，自瑜伽之爱年度盛典启动以来，瑜伽人响应的热情超乎意料，大会将要呈献的精彩超乎意料，大会筹备组在感动中超乎常规的实施各项工作：包括场地落实、视频制作、舞美设计、视觉设计、食宿安排、课程安排、大会批文等具体工作。</p><p hiragino="" sans="" microsoft="" white-space:="" text-align:=""><img class="" height="200" data-original="../upload/201711/1510476765907066.jpg" alt="图片关键词" src="../upload/201711/1510476765907066.jpg" style="display: inline;"></p><p hiragino="" sans="" microsoft="" white-space:="">综合多方面因素，大会筹备组为了打造一届完美的瑜伽盛典，让伽人们有更好的参会体验，现决定把［瑜伽之爱］年度盛典改在春季的5月20日举行。</p><p hiragino="" sans="" microsoft="" white-space:="" text-align:=""><img class="" height="200" data-original="../upload/201711/1510476767941449.jpg" alt="图片关键词" src="../upload/201711/1510476767941449.jpg" style="display: inline;"></p><p hiragino="" sans="" microsoft="" white-space:="">五月是青春迸发的季节、是鲜花烂漫的季节，是北京最美最舒适的季节！ 时间不远，我们相约520，相约在北京！共同期待那个美好的春天！</p><p hiragino="" sans="" microsoft="" white-space:="" text-align:=""><img class="" height="200" data-original="../upload/201711/1510476768503471.jpg" alt="图片关键词" src="../upload/201711/1510476768503471.jpg" style="display: inline;"></p><p hiragino="" sans="" microsoft="" white-space:="" text-align:=""><img class="" height="200" data-original="../upload/201711/1510476769599002.jpg" alt="图片关键词" src="../upload/201711/1510476769599002.jpg" style="display: inline;"></p><p hiragino="" sans="" microsoft="" white-space:="" text-align:=""><img class="" height="200" data-original="../upload/201711/1510476769130541.jpg" alt="图片关键词" src="../upload/201711/1510476769130541.jpg" style="display: inline;"></p><p hiragino="" sans="" microsoft="" white-space:="" text-align:="">往届大会盛况</p><p hiragino="" sans="" microsoft="" white-space:="" text-align:=""><img class="" height="200" data-original="../upload/201711/1510476771138829.jpg" alt="图片关键词" src="../upload/201711/1510476771138829.jpg" style="display: inline;"></p><p hiragino="" sans="" microsoft="" white-space:="" text-align:=""><img class="" height="200" data-original="../upload/201711/1510476771127662.jpg" alt="图片关键词" src="../upload/201711/1510476771127662.jpg" style="display: inline;"></p><p hiragino="" sans="" microsoft="" white-space:="" text-align:="">共圆瑜伽梦</p><p hiragino="" sans="" microsoft="" white-space:=""><strong>［瑜伽之爱］</strong>不仅是盛典，也是中国梦的组成部分。是你我的梦，成长的梦，健康的梦，爱与被爱的梦。</p><p>在大会主题下又分别呈现四个主题：<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:=""></p><p hiragino="" sans="" microsoft="" white-space:=""><span style="color: rgb(247, 150, 70);">健康之梦、教练之梦、馆主之梦、互联网之梦</span></p><p hiragino="" sans="" microsoft="" white-space:=""><strong>［健康之梦］</strong>本次大会特别设置了康复理疗课程，更多地为瑜伽馆提供新的康复治疗方法和观点，提供更积极的健康观念和知识。与现代社会注重健康趋势一致。圆你健康之梦</p><p hiragino="" sans="" microsoft="" white-space:=""><strong>［教练之梦］</strong>大会设置了丰富而又专业的课程，采取工作坊教学模式，一站式让你领悟中国顶尖的各种瑜伽流派工作坊课程，圆你教练员之梦。</p><p hiragino="" sans="" microsoft="" white-space:=""><strong>［馆主之梦］</strong>通往财富的路上，每个馆都有可能。圆你馆主之梦</p><p hiragino="" sans="" microsoft="" white-space:=""><strong>［互联网之梦］</strong>最卓越的网络CEO与你对话，2018年瑜伽馆网络营销的时代。圆你互联网之梦</p><p hiragino="" sans="" microsoft="" white-space:="" text-align:=""><img class="" height="200" data-original="../upload/201711/1510476779972948.jpg" alt="图片关键词" src="../upload/201711/1510476779972948.jpg" style="display: inline;"></p><p hiragino="" sans="" microsoft="" white-space:="" text-align:=""><img class="" height="200" data-original="../upload/201711/1510476781138743.jpg" alt="图片关键词" src="../upload/201711/1510476781138743.jpg" style="display: inline;"></p><div hiragino="" sans="" microsoft="" white-space:="" text-align:="">the love of yoga</div><div hiragino="" sans="" microsoft="" white-space:="" text-align:="">大会亮点一</div><p>教练训练课程<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">本届课程全部采取工作坊教学模式，一站式让你感受中国顶尖的各种流派。工作坊课程从传统的哈他瑜伽、曼陀罗冥想、调息法、放松术、艾扬格、流瑜伽、阴瑜伽、阿斯汤加、孕产瑜伽、高温瑜伽、养生瑜伽、舞韵瑜伽、塑形瑜伽、理疗瑜伽、康复瑜伽、颂钵疗愈、特色：特定主题有目标的强化课程，深度领会，引领练习者从身体出发探索更深层的感知层面、身体层面，探索新方法，新技巧。<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">专家团队提供一系列主题课程：瑜伽体式标准化、课程编排，教学口令，私教课程，人体评估、如何治疗创伤、如何预防创伤、瑜伽运动学。<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:=""></p><div hiragino="" sans="" microsoft="" white-space:="" text-align:="">the love of yoga</div><p hiragino="" sans="" microsoft="" white-space:="" text-align:="">大会亮点二</p><p hiragino="" sans="" microsoft="" white-space:="">馆主经管课程</p><div hiragino="" sans="" microsoft="" white-space:="">建立基本功能力、管理好你的资源、转变思维方式、升级自我认知、善于学习、善于改变。</div><div hiragino="" sans="" microsoft="" white-space:="">课程内容</div><p>（一）瑜伽会所、瑜伽培训机构如何营利（线上线下双管齐下）<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（二）会所需要做哪几件事<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（1.前期：会馆的筹备、选址、规划。2.后期：如何经营。包括：线上的宣传和线下如何带动会员及学员搞活动。3.专业、服务以及如何销售。4.细节管理：财务、数据以及店务管理等。）<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（三）如何掌握瑜伽营利工具（产品：教培、私教、会员）<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（四）会馆最需要突破地方在哪里？<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（经营理念如何由小做大、如何利用网络）<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（五）消费心理学<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（六）和你的员工、教练如何进行头脑风暴，用数量带动质量，用点子激发点子<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（七）如何有效发展会员和学员（会员：提升会员服务；学员：铸造良好的团队）<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（八）如何守住信誉和品牌（团队、店务、专业核心）<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:=""></p><div hiragino="" sans="" microsoft="" white-space:="" text-align:="">the love of yoga</div><p><br></p><div>大会亮点三</div><p>互联网营销论坛<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（一）互联网营销模式<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（二）新趋势：OMO和第三波人口红利 &nbsp; &nbsp; OMO线上融入线下<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（三）互联网模式让你走出传统管理<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（四）大数据、云计算对瑜伽有哪些帮助<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（五）瑜伽怎样拥抱互联网<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:=""></p><p><br></p><div hiragino="" sans="" microsoft="" white-space:="" text-align:="">the love of yoga</div><p><br></p><div>大会亮点四</div><p>赠送第四届［瑜伽之爱］学习卡一张，价值 5000元<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">凭此卡可以在［瑜伽之爱］指定的全国名师坊、全国知名培训学院、馆主研修班、康复理疗研修班参加学习，每次抵扣500～1000元，同时颁发［瑜伽之爱］证书（有效期一年）<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:=""></p><p><br></p><div hiragino="" sans="" microsoft="" white-space:="" text-align:="">the love of yoga</div><p><br></p><p>大会亮点五</p><p>大会将设立［瑜伽之爱教练联盟］、［瑜伽之爱馆主联盟］，为瑜伽教练和馆主们搭建一个平台，让每个瑜伽人都能在平台上收获成长。<br></p><p><img class="" height="200" data-original="../upload/201711/1510476781708776.jpg" alt="图片关键词" src="../upload/201711/1510476781708776.jpg" style="display: inline;"><br></p><p><br></p><p><br></p><p hiragino="" sans="" microsoft="" white-space:="">以上排名不分先后，讲师陆续增加中......</p><p hiragino="" sans="" microsoft="" white-space:="" text-align:=""><img class="" height="200" data-original="../upload/201711/1510476782137615.jpg" alt="图片关键词" src="../upload/201711/1510476782137615.jpg" style="display: inline;"></p><p>票价标准：<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">第一批&nbsp;980元&nbsp;<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">＊赠送全球限量珍藏版《博伽梵歌原意》1部<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">＊赠送大会期间正餐&nbsp;<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">第二批&nbsp;1212元&nbsp;第三批&nbsp;1580元<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">伽人们报名人数达到上限我们会提前进入下一个价格标准，欢迎你第一时间报名，我们期待你的到来！<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">已报名和现在报名的伽人：<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">＊赠送全球限量珍藏版《博伽梵歌原意》1部<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">＊赠送大会期间正餐<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">＊赠送大会晚宴<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">全球限量珍藏版《博伽梵歌原意》<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">报名方式（报名请说明在瑜伽网看到此信息）<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（一）在［瑜伽之爱］指定的名师课堂群报名<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（二）各省市指定会所及各大网络媒体<br style="font-family: tahoma, arial, " hiragino="" sans="" microsoft="" white-space:="">（三）各个省市会所及培训机构20人以上可与北京总部服务中心报名</p><div id="metinfo_additional"></div><br><span>标签:&nbsp;&nbsp;<a href="../search/search.php?class1=&amp;class2=&amp;class3=&amp;searchtype=0&amp;searchword=&amp;lang=cn" target="_blank" title="链接关键词"></a>&nbsp;<a href="../search/search.php?class1=&amp;class2=&amp;class3=&amp;searchtype=0&amp;searchword=%E7%91%9C%E4%BC%BD%E4%B9%8B%E7%88%B1&amp;lang=cn" target="_blank" title="链接关键词">瑜伽之爱</a>&nbsp;<a href="../search/search.php?class1=&amp;class2=&amp;class3=&amp;searchtype=0&amp;searchword=%E5%B9%B4%E5%BA%A6%E7%9B%9B%E5%85%B8&amp;lang=cn" target="_blank" title="链接关键词">年度盛典</a>&nbsp;<a href="../search/search.php?class1=&amp;class2=&amp;class3=&amp;searchtype=0&amp;searchword=%E7%91%9C%E4%BC%BD%E7%9B%9B%E5%85%B8&amp;lang=cn" target="_blank" title="链接关键词">瑜伽盛典</a></span></div>
 
-                </div></div>
-                <div class="met-shownews-footer">
-
-                    <ul class="pager pager-round">
-                        <li class="previous ">
-                            <a href="shownews.php?lang=cn&amp;id=54" title="2017国际瑜伽康复理疗峰会干货满满、大咖云集">
-                                上一篇
-                                <span aria-hidden="true" class="hidden-xs">：2017国际瑜伽康复理疗峰会干货满满、大咖云集</span>
-                            </a>
-                        </li>
-                        <li class="next ">
-                            <a href="shownews.php?lang=cn&amp;id=56" title="2017北京 首届中国瑜伽康复经营发展大会">
-                                下一篇
-                                <span aria-hidden="true" class="hidden-xs">：2017北京 首届中国瑜伽康复经营发展大会</span>
-                            </a>
-                        </li>
-                    </ul>
+                <div class="met-editor lazyload clearfix">
+                    <div class="editorlightgallery">
+                        {$articleData['content']}
+                    </div>
                 </div>
+
+                <!--<div class="met-shownews-footer">-->
+                <!--<ul class="pager pager-round">-->
+                <!--<li class="previous ">-->
+                <!--<a href="" title="2017国际瑜伽康复理疗峰会干货满满、大咖云集">-->
+                <!--上一篇-->
+                <!--<span aria-hidden="true" class="hidden-xs">：2017国际瑜伽康复理疗峰会干货满满、大咖云集</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="next ">-->
+                <!--<a href="" title="2017北京 首届中国瑜伽康复经营发展大会">-->
+                <!--下一篇-->
+                <!--<span aria-hidden="true" class="hidden-xs">：2017北京 首届中国瑜伽康复经营发展大会</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+
             </div>
             <div class="col-md-3 met-conx">
                 <div class="met-information">
                     <h3>最新动态</h3>
                     <ul>
-                        <li><h6><a href="../news/shownews.php?lang=cn&amp;id=54" title="2017国际瑜伽康复理疗峰会干货满满、大咖云集">2017国际瑜伽康复理疗峰会干货满满、大咖云集</a></h6></li>
-
-                        <li><h6><a href="../news/shownews.php?lang=cn&amp;id=57" title="2018第四届“瑜伽之爱”年度盛典 相约北京">2018第四届“瑜伽之爱”年度盛典 相约北京</a></h6></li>
-
-                        <li><h6><a href="../news/shownews.php?lang=cn&amp;id=56" title="2017北京 首届中国瑜伽康复经营发展大会">2017北京 首届中国瑜伽康复经营发展大会</a></h6></li>
-
-                        <li><h6><a href="../news/shownews.php?lang=cn&amp;id=55" title="2017 瑜伽年度大会---苏州站">2017 瑜伽年度大会---苏州站</a></h6></li>
-
-                        <li><h6><a href="../news/shownews.php?lang=cn&amp;id=53" title="瑜伽行业大会红红火火，实际境遇究竟如何">瑜伽行业大会红红火火，实际境遇究竟如何</a></h6></li>
-
+                        {foreach name='_newArticleData' key='k' item='v'}
+                        <li>
+                            <h6>
+                                <a href="{:url('index/Details/index',['aid'=>$v['id']])}" title="{$v['title']}">{$v['title']}</a>
+                            </h6>
+                        </li>
+                        {/foreach}
                     </ul>
                 </div>
             </div>

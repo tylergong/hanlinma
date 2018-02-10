@@ -14,28 +14,13 @@
                         <div class="row">
                             <ol class="breadcrumb">
                                 <li>
-                                    <a href="https://show.metinfo.cn/muban/M1156015/376/" title="首页">
+                                    <a href="{:url('/')}" title="首页">
                                         <i class="icon wb-home" aria-hidden="true"></i>首页
                                     </a>
                                 </li>
                                 <li class="dropdown">
-
-                                    <a href="../news/" title="新闻资讯" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">新闻资讯 <i class="caret"></i></a>
-                                    <ul class="dropdown-menu bullet">
-
-                                        <li><a href="../news/" title="全部">全部</a></li>
-
-
-                                        <li><a href="../news/news.php?lang=cn&amp;class2=106" title="会馆活动">会馆活动</a></li>
-
-                                        <li><a href="../news/news.php?lang=cn&amp;class2=107" title="瑜伽资讯">瑜伽资讯</a></li>
-
-                                        <li><a href="../news/news.php?lang=cn&amp;class2=108" title="常见问题">常见问题</a></li>
-
-                                    </ul>
-
+                                    {$categoryData['cname']}
                                 </li>
-
 
                             </ol>
                         </div>
@@ -43,232 +28,46 @@
                 </div>
                 <div class="met-news-list news-lists">
                     <ul class="met-page-ajax" data-scale=''>
+                        {foreach name='articleData' key='k' item='v'}
                         <li>
-                            <a class="img" href="newsshow.html" title="练瑜伽为什么要选择瑜伽馆，而非健身房？"
-                            >
-                                <img src="__STATIC__/index/picture/1-1g1251503260-l.jpg" alt="练瑜伽为什么要选择瑜伽馆，而非健身房？">
+                            <a class="img" href="{:url('index/Details/index',['aid'=>$v['id']])}" title="{$v['title']}">
+                                <img src="__STATIC__/index/{$v['thumb']}" alt="{$v['title']}">
                             </a>
                             <h4>
-                                <a href="newsshow.html"​ title="练瑜伽为什么要选择瑜伽馆，而非健身房？"
-                                >
-                                    练瑜伽为什么要选择瑜伽馆，而非健身房？
-                                </a>
+                                <a href="{:url('index/Details/index',['aid'=>$v['id']])}" ​title="{$v['title']}">{$v['title']}</a>
                             </h4>
                             <p class="info">
-                                        <span>
-                                            <i class="fa fa-calendar">
-                                            </i>
-                                            2017年11月28日
-                                        </span>
-                                <span>
-                                            <i class="fa fa-pencil-square">
-                                            </i>
-                                            admin
-                                        </span>
-                                <span>
-                                            <i class="icon wb-eye">
-                                            </i>
-                                            76
-                                        </span>
+                                <span><i class="fa fa-calendar"></i>{$v['create_time']|date="Y-m-d H:i:s",###}</span>
+                                <span><i class="fa fa-pencil-square"></i>{$v['author']}</span>
+                                <span><i class="icon wb-eye"></i>{$v['click_num']}</span>
                             </p>
                             <p class="des">
-                                1、环境 瑜伽馆练习环境安静而舒适，人人摒气凝声，能为练习者营造平和的心态，有助于减轻心理压力。 2、课程 也会有一些瑜伽工作室很针对性的开始特色瑜伽课程，专于两三类瑜...
+                                {$v['digest']}
                             </p>
                             <p class="more">
-                                <a href="newsshow.html"​ title="练瑜伽为什么要选择瑜伽馆，而非健身房？"
-                                >
+                                <a href="{:url('index/Details/index',['aid'=>$v['id']])}" title="{$v['title']}">
                                     阅读更多>>
                                 </a>
                             </p>
                         </li>
-                        <li>
-                            <a class="img" href="newsshow.html" title="2017北京 首届中国瑜伽康复经营发展大会"
-                            >
-                                <img src="__STATIC__/index/picture/1-1g125145k90-l.jpg" alt="2017北京 首届中国瑜伽康复经营发展大会">
-                            </a>
-                            <h4>
-                                <a href="newsshow.html"​ title="2017北京 首届中国瑜伽康复经营发展大会"
-                                >
-                                    2017北京 首届中国瑜伽康复经营发展大会
-                                </a>
-                            </h4>
-                            <p class="info">
-                                        <span>
-                                            <i class="fa fa-calendar">
-                                            </i>
-                                            2017年11月28日
-                                        </span>
-                                <span>
-                                            <i class="fa fa-pencil-square">
-                                            </i>
-                                            admin
-                                        </span>
-                                <span>
-                                            <i class="icon wb-eye">
-                                            </i>
-                                            165
-                                        </span>
-                            </p>
-                            <p class="des">
-                                导读:瑜伽康复势必成为中国瑜伽私教未来的发展趋势！所以本次大会将以现代科学作为瑜伽康复私教发展的核心；瑜伽康复的定义：是瑜伽与康复医学、生物力学及神经科学的最新知识...
-                            </p>
-                            <p class="more">
-                                <a href="newsshow.html"​ title="2017北京 首届中国瑜伽康复经营发展大会"
-                                >
-                                    阅读更多>>
-                                </a>
-                            </p>
-                        </li>
-                        <li>
-                            <a class="img" href="newsshow.html" title="练习瑜伽时，我们的膝盖为什么总是“很受伤”"
-                            >
-                                <img src="__STATIC__/index/picture/1-1g1251506090-l.jpg" alt="练习瑜伽时，我们的膝盖为什么总是“很受伤”">
-                            </a>
-                            <h4>
-                                <a href="newsshow.html"​ title="练习瑜伽时，我们的膝盖为什么总是“很受伤”"
-                                >
-                                    练习瑜伽时，我们的膝盖为什么总是“很受伤”
-                                </a>
-                            </h4>
-                            <p class="info">
-                                        <span>
-                                            <i class="fa fa-calendar">
-                                            </i>
-                                            2017年11月27日
-                                        </span>
-                                <span>
-                                            <i class="fa fa-pencil-square">
-                                            </i>
-                                            admin
-                                        </span>
-                                <span>
-                                            <i class="icon wb-eye">
-                                            </i>
-                                            189
-                                        </span>
-                            </p>
-                            <p class="des">
-                                小编刚开始接触瑜伽时还自我安慰膝盖疼痛是正常现象，对膝盖的敏感性不屑一顾，没有意识到它是多么容易受伤的部位。看到瑜伽馆里没有多少人使用瑜伽辅具，还想：别人都不用，...
-                            </p>
-                            <p class="more">
-                                <a href="newsshow.html"​ title="练习瑜伽时，我们的膝盖为什么总是“很受伤”"
-                                >
-                                    阅读更多>>
-                                </a>
-                            </p>
-                        </li>
-                        <li>
-                            <a class="img" href="newsshow.html" title="2017全民健身运动报告怎么看瑜伽市场"
-                            >
-                                <img src="__STATIC__/index/picture/1-1g125145u80-l.jpg" alt="2017全民健身运动报告怎么看瑜伽市场">
-                            </a>
-                            <h4>
-                                <a href="newsshow.html"​ title="2017全民健身运动报告怎么看瑜伽市场"
-                                >
-                                    2017全民健身运动报告怎么看瑜伽市场
-                                </a>
-                            </h4>
-                            <p class="info">
-                                        <span>
-                                            <i class="fa fa-calendar">
-                                            </i>
-                                            2017年11月25日
-                                        </span>
-                                <span>
-                                            <i class="fa fa-pencil-square">
-                                            </i>
-                                            admin
-                                        </span>
-                                <span>
-                                            <i class="icon wb-eye">
-                                            </i>
-                                            62
-                                        </span>
-                            </p>
-                            <p class="des">
-                                2009年，为了纪念北京成功举办奥运会，也为了倡导人民群众更广泛地参加体育健身运动，国务院将每年的8月8日定为全民健身日。在全民健身日8周年之际，清数大数据产业联盟（原清华...
-                            </p>
-                            <p class="more">
-                                <a href="newsshow.html"​ title="2017全民健身运动报告怎么看瑜伽市场"
-                                >
-                                    阅读更多>>
-                                </a>
-                            </p>
-                        </li>
-                        <li>
-                            <a class="img" href="newsshow.html" title="发力瑜伽市场，将在5000家店内开设瑜伽裤专卖区"
-                            >
-                                <img src="__STATIC__/index/picture/1-1g1251502420-l.jpg" alt="发力瑜伽市场，将在5000家店内开设瑜伽裤专卖区">
-                            </a>
-                            <h4>
-                                <a href="newsshow.html"​ title="发力瑜伽市场，将在5000家店内开设瑜伽裤专卖区"
-                                >
-                                    发力瑜伽市场，将在5000家店内开设瑜伽裤专卖区
-                                </a>
-                            </h4>
-                            <p class="info">
-                                        <span>
-                                            <i class="fa fa-calendar">
-                                            </i>
-                                            2017年11月25日
-                                        </span>
-                                <span>
-                                            <i class="fa fa-pencil-square">
-                                            </i>
-                                            admin
-                                        </span>
-                                <span>
-                                            <i class="icon wb-eye">
-                                            </i>
-                                            195
-                                        </span>
-                            </p>
-                            <p class="des">
-                                日前，Nike在投资者大会上正式宣布，将于下月正式在旗下5000家专卖店开设运动女裤专卖区pant studios，正式发力瑜伽市场。Nike管理层曾表示，随着运动装备越来越流行，紧身运动裤将会...
-                            </p>
-                            <p class="more">
-                                <a href="newsshow.html"​ title="发力瑜伽市场，将在5000家店内开设瑜伽裤专卖区"
-                                >
-                                    阅读更多>>
-                                </a>
-                            </p>
-                        </li>
+                        {/foreach}
                     </ul>
-                    <div class="">
-                        <div class='met_pager'>
-                                    <span class='PreSpan'>
-                                        上一页
-                                    </span>
-                            <a class="Ahover">
-                                1
-                            </a>
-                            <a href='#'>
-                                2
-                            </a>
-                            <a href='#'>
-                                3
-                            </a>
-                            <a href='#'>
-                                下一页
-                            </a>
-                        </div>
-                    </div>
+                </div>
+                <div class="pagination pagination-sm pull-right">
+                    {$articleData->render()}
                 </div>
             </div>
             <div class="col-md-3 met-conx">
                 <div class="met-information">
                     <h3>最新动态</h3>
                     <ul>
-                        <li><h6><a href="../news/shownews.php?lang=cn&amp;id=54" title="2017国际瑜伽康复理疗峰会干货满满、大咖云集">2017国际瑜伽康复理疗峰会干货满满、大咖云集</a></h6></li>
-
-                        <li><h6><a href="../news/shownews.php?lang=cn&amp;id=57" title="2018第四届“瑜伽之爱”年度盛典 相约北京">2018第四届“瑜伽之爱”年度盛典 相约北京</a></h6></li>
-
-                        <li><h6><a href="../news/shownews.php?lang=cn&amp;id=56" title="2017北京 首届中国瑜伽康复经营发展大会">2017北京 首届中国瑜伽康复经营发展大会</a></h6></li>
-
-                        <li><h6><a href="../news/shownews.php?lang=cn&amp;id=55" title="2017 瑜伽年度大会---苏州站">2017 瑜伽年度大会---苏州站</a></h6></li>
-
-                        <li><h6><a href="../news/shownews.php?lang=cn&amp;id=53" title="瑜伽行业大会红红火火，实际境遇究竟如何">瑜伽行业大会红红火火，实际境遇究竟如何</a></h6></li>
-
+                        {foreach name='_newArticleData' key='k' item='v'}
+                        <li>
+                            <h6>
+                                <a href="{:url('index/Details/index',['aid'=>$v['id']])}" title="{$v['title']}">{$v['title']}</a>
+                            </h6>
+                        </li>
+                        {/foreach}
                     </ul>
                 </div>
             </div>

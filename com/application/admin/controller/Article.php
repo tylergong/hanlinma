@@ -30,7 +30,7 @@ class Article extends Common {
         } else {
             $field = $this->db->getAll($where);
         }
-        $field = $field->paginate(8, false, $pageParam);
+        $field = $field->paginate(20, false, $pageParam);
         $this->assign('field', $field);
 
         // 获取分类数据
@@ -56,7 +56,7 @@ class Article extends Common {
             $pageParam['query']['order'] = $order;
             $pageParam['path'] = url('index');
             $list = $this->db->getAll($where, $sort . ' ' . $order);
-            $list = $list->paginate(8, false, $pageParam);
+            $list = $list->paginate(20, false, $pageParam);
             $page = $list->render();
             return ['html' => $this->fetch('list', ['field' => $list]), 'page' => $page];
         }
