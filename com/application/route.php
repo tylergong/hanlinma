@@ -14,6 +14,9 @@ return [
         'name' => '\w+',
     ],
     '[a]' => [
-        ':id' => ['index/Index/article', ['method' => 'get'], ['id' => '\d+']],
+        ':aid' => ['index/Details/index', ['method' => 'get'], ['id' => '\d+']],
+    ],
+    '[c]' => [
+        ':cid' => ['index/Lists/index', ['method' => 'get'], ['cid' => '\d+']],
     ],
 ];

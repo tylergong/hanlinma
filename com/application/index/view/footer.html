@@ -146,15 +146,20 @@
     <div class="container">
         <ol class="breadcrumb">
             <li>友情链接 :</li>
-            <li><a href='http://www.91lsme.com/' target='_blank'>就要听我说</a></li>
-            <li><a href='http://www.91lsme.com/' target='_blank'>就要听我说</a></li>
+            {foreach name='_linkData' key='k' item='v'}
+            <li><a href="{$v['flink']}" target="_blank">{$v['fname']}</a></li>
+            {/foreach}
         </ol>
     </div>
 </div>
 <footer>
     <div class="container text-center">
         <div class="powered_by_metinfo">
-            Copyright &copy; 2017-2018 深圳市翰林码网络科技有限公司 版权所有
+            {$_webSet['copyright']}
+            |
+            {$_webSet['beian']}
+            |
+            {$_webSet['email']}
         </div>
     </div>
 </footer>

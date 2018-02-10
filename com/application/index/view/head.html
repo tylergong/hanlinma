@@ -56,12 +56,12 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="hamburger-bar"></span>
             </button>
-            <a href="#" class="navbar-brand navbar-logo vertical-align" title="翰林码网络科技公司">
+            <a href="#" class="navbar-brand navbar-logo vertical-align" title="{$_webSet['title']}">
                 <h1 class='hide'>
-                    翰林码网络科技公司
+                    {$_webSet['title']}
                 </h1>
                 <div class="vertical-align-middle">
-                    <img src="__STATIC__/index/picture/logo.png" alt="翰林码网络科技公司" title="翰林码网络科技公司"/>
+                    <img src="__STATIC__/index/picture/logo.png" alt="{$_webSet['title']}" title="{$_webSet['title']}"/>
                 </div>
             </a>
             <h2 class='hide'></h2>
@@ -72,9 +72,9 @@
                     <i class="wb-search"></i>
                 </div>
                 <div class="search-form">
-                    <form name="formsearch" action="/plus/search.php">
+                    <form name="formsearch" action="{:url('index/index/search')}">
                         <input type="hidden" name="kwtype" value="0"/>
-                        <input type="text" placeholder="请输入搜索关键词！" name="q" value="">
+                        <input type="text" placeholder="请输入搜索关键词！" name="words" value="">
                         <button type="submit" class="wb-search">
                         </button>
                     </form>
@@ -83,160 +83,42 @@
 
             <ul class="nav navbar-nav navbar-right navlist">
                 <li class="margin-right-20">
-                    <a href="/" title="首页" class="link active">
-                        首页
-                    </a>
+                    <a href="{:url('/')}" title="首页" {if condition="!input('param.cid')" }class="link active" {else/}class="link"{/if}>首页</a>
                 </li>
+                {foreach name='_cateData' key='k' item='v'}
                 <li class="dropdown margin-right-20">
-                    <a data-toggle="dropdown" data-hover="dropdown" aria-expanded="false"
-                       class="dropdown-toggle link  " href="/index/index/actList">
-                        网站设计
-                        <span class="caret">
-                                </span>
+                    {if condition="$v['url']"}
+                    <a data-toggle="dropdown" data-hover="dropdown" aria-expanded="false" class="dropdown-toggle link"
+                       href="{$v['url']}">
+                        {$v['cname']}
+                        {if condition="$v['hasSon']"}
+                        <span class="caret"></span>
+                        {/if}
                     </a>
+                    {else/}
+                    <a data-toggle="dropdown" data-hover="dropdown" aria-expanded="false" class="dropdown-toggle link"
+                       href="{:url('index/Lists/index',['cid'=>$v['id']])}">
+                        {$v['cname']}
+                        {if condition="$v['hasSon']"}
+                        <span class="caret"></span>
+                        {/if}
+                    </a>
+                    {/if}
+                    {if condition="$v['hasSon']"}
                     <ul class="dropdown-menu dropdown-menu-right bullet">
+                        {foreach name='v.cateSon' key='kk' item='vv'}
                         <li>
-                            <a href="/index/index/actList" class="">
-                                998建站套餐
-                            </a>
+                            {if condition="$vv['url']"}
+                            <a href="{$vv['url']}" class="">{$vv['cname']}</a>
+                            {else/}
+                            <a href="{:url('index/Lists/index',['cid'=>$vv['id']])}" class="">{$vv['cname']}</a>
+                            {/if}
                         </li>
-                        <li>
-                            <a href="about1.html" class="">
-                                1988建站套餐
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about1.html" class="">
-                                网站定制开发
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about1.html" class="">
-                                企业系统开发
-                            </a>
-                        </li>
+                        {/foreach}
                     </ul>
+                    {/if}
                 </li>
-                <li class="dropdown margin-right-20">
-                    <a data-toggle="dropdown" data-hover="dropdown" aria-expanded="false"
-                       class="dropdown-toggle link  " href="/index/index/caseList">
-                        品牌推广
-                        <span class="caret">
-                                </span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right bullet">
-                        <li>
-                            <a href="news1.html" class="">
-                                网站排名忧化
-                            </a>
-                        </li>
-                        <li>
-                            <a href="news2.html" class="">
-                                品牌推广策划
-                            </a>
-                        </li>
-                        <li>
-                            <a href="news2.html" class="">
-                                推广培训课程
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown margin-right-20">
-                    <a data-toggle="dropdown" data-hover="dropdown" aria-expanded="false"
-                       class="dropdown-toggle link  " href="about.html">
-                        服务项目
-                        <span class="caret">
-                                </span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right bullet">
-                        <li>
-                            <a href="about1.html" class="">
-                                信息系统维护服务
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about1.html" class="">
-                                网络系统维护服务
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about1.html" class="">
-                                网络布线工程服务
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about1.html" class="">
-                                安防监控工程服务
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown margin-right-20">
-                    <a data-toggle="dropdown" data-hover="dropdown" aria-expanded="false"
-                       class="dropdown-toggle link  " href="about.html">
-                        成功案例
-                        <span class="caret">
-                                </span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right bullet">
-                        <li>
-                            <a href="about1.html" class="">
-                                企业网站案例
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about1.html" class="">
-                                排名忧化案例
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about1.html" class="">
-                                网络工程案例
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about1.html" class="">
-                                安防监控案例
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown margin-right-20">
-                    <a data-toggle="dropdown" data-hover="dropdown" aria-expanded="false"
-                       class="dropdown-toggle link  " href="about.html">
-                        关于我们
-                        <span class="caret">
-                                </span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right bullet">
-                        <li>
-                            <a href="about1.html" class="">
-                                公司介绍
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about1.html" class="">
-                                技术团队
-                            </a>
-                        </li>
-                        <li>
-                            <a href="about1.html" class="">
-                                新闻资讯
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li class="dropdown margin-right-10">
-                    <a class="link  " href="contact.html">
-                        联系我们
-                    </a>
-                    <ul style="display:none">
-                    </ul>
-                </li>
+                {/foreach}
             </ul>
 
         </div>
