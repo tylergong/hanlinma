@@ -30,7 +30,7 @@ class Article extends Model {
     public function getAll($where = array('is_del' => 0), $orderby = 'create_time desc') {
         $allList = db('hlm_article')->alias('a')
             ->join('hlm_category c', 'a.cid = c.id')
-            ->field('a.id,a.title,a.author,a.create_time,a.click_num,c.cname')
+            ->field('a.id,a.title,a.thumb,a.author,a.create_time,a.click_num,c.cname')
             ->where('a.is_del', $where['is_del']);
         if (!empty($where['title'])) {
             $allList = $allList->where('a.title', 'like', "%{$where['title']}%");
@@ -46,7 +46,7 @@ class Article extends Model {
     public function getRecycleAll() {
         return db('hlm_article')->alias('a')
             ->join('hlm_category c', 'a.cid=c.id')
-            ->field('a.id,a.title,a.author,a.create_time,a.del_time,a.click_num,c.cname')
+            ->field('a.id,a.title,a.thumb,a.author,a.create_time,a.del_time,a.click_num,c.cname')
             ->where('a.is_del', 1)
             ->order('a.create_time desc')
             ->paginate(8);
