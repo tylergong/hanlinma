@@ -60,7 +60,7 @@ class Common extends Controller {
 
     // 获取最新动态数据（分类为24的新闻资讯）
     public function loadNewArticleData() {
-        return db('article')->field('id,title')->where('cid', 24)->order('create_time desc')->limit(6)->select();
+        return db('article')->field('id,title')->whereIn('cid', [24, 25, 26, 27])->order('create_time desc')->limit(6)->select();
     }
 
 }

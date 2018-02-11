@@ -10,7 +10,28 @@ class Index extends Common {
 
     // 首页
     public function index() {
+        // 获取分类文章列表
+        $article1Data = db('article')->where('cid', 17)->limit(4)->select();
+        $article2Data = db('article')->where('cid', 19)->limit(4)->select();
+        $article3Data = $this->getIndexArticle(25);
+        $article4Data = $this->getIndexArticle(26);
+        $article5Data = $this->getIndexArticle(27);
+        $this->assign('article1Data', $article1Data);
+        $this->assign('article2Data', $article2Data);
+        $this->assign('article3Data', $article3Data);
+        $this->assign('article4Data', $article4Data);
+        $this->assign('article5Data', $article5Data);
         return $this->fetch();
     }
 
+    protected function getIndexArticle($cid) {
+        $articleData = db('article')->where('cid', $cid)->limit(4)->select();
+        foreach ($articleData as &$v) {
+            // 替换掉各种标签 空格 换行符等
+            $tmp = preg_replace(array('/<img(.*?)>/', '/<(.*?)>/', '/<\/(.*?)>/', '/<br \/>/', '/&nbsp;/', '/&lt;(.*?)&gt;/'), '', $v['content']);
+            // 然后在从内容中获取100字摘要
+            $v['digest'] = mb_substr($tmp, 0, 200, 'utf-8');
+        };
+        return $articleData;
+    }
 }

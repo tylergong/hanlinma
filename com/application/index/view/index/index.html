@@ -15,56 +15,48 @@
             <div class="service-box">
                 <ul class="service-wraper">
                     <li class="service-slide">
-                        <a href="#" title="网站设计">
+                        <a href="{:url('index/Details/index',['aid'=>1])}" target="_blank" title="网站设计">
                             <b>
                                 <img src="__STATIC__/index/picture/fu.png">
                                 <img class="icon" src="__STATIC__/index/picture/1-1G124164UI26.png">
                             </b>
-                            <h3>
-                                网站设计
-                            </h3>
+                            <h3>网站设计</h3>
                             <p>
                                 优秀的网站设计是宣传公司品牌形象的第一步，从而进一步展示企业产品，拓展市场。网站是一种生意方式，还是展示公司文化和潜力的平台，让更多的合作伙伴关注企业！
                             </p>
                         </a>
                     </li>
                     <li class="service-slide">
-                        <a href="#" title="排名忧化">
+                        <a href="{:url('index/Details/index',['aid'=>12])}" target="_blank" title="排名忧化">
                             <b>
                                 <img src="__STATIC__/index/picture/fu.png">
                                 <img class="icon" src="__STATIC__/index/picture/1-1G124164919517.png">
                             </b>
-                            <h3>
-                                排名忧化
-                            </h3>
+                            <h3>排名忧化</h3>
                             <p>
                                 关键词忧化排名给网站带来流量，带动企业网站品牌在知名度，关键词排名可以让用户更为方便、快捷的找到企业，让用户最先了解到同行业中企业产品的优势，突出产品/服务亮点！
                             </p>
                         </a>
                     </li>
                     <li class="service-slide">
-                        <a href="#" title="系统维护">
+                        <a href="{:url('index/Details/index',['aid'=>8])}" target="_blank" title="系统维护">
                             <b>
                                 <img src="__STATIC__/index/picture/fu.png">
                                 <img class="icon" src="__STATIC__/index/picture/1-1G1241A210Y0.png">
                             </b>
-                            <h3>
-                                系统维护
-                            </h3>
+                            <h3>系统维护</h3>
                             <p>
                                 专业的系统软件，硬件，网络技术能力，为客提供全方位的服务，提升企业信息化系统的应用效率，降底人工成本，提供定制培训等相关增值服务，让企业集中精力关注主营核心业务！
                             </p>
                         </a>
                     </li>
                     <li class="service-slide">
-                        <a href="#" title="网络工程">
+                        <a href="{:url('index/Details/index',['aid'=>10])}" target="_blank" title="网络工程">
                             <b>
                                 <img src="__STATIC__/index/picture/fu.png">
                                 <img class="icon" src="__STATIC__/index/picture/1-1G1241A302345.png">
                             </b>
-                            <h3>
-                                网络工程
-                            </h3>
+                            <h3>网络工程</h3>
                             <p>
                                 网络布线，集团电话、安防监控，丰富的工程施工经验（弱电工程），优秀的技术能力，按照企业需求合理规划网络布局，保证工程的稳定性和可扩容性！
                             </p>
@@ -81,15 +73,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="about-title title-box">
-                    <h2>
-                        关于我们
-                    </h2>
+                    <h2>关于我们</h2>
                 </div>
                 <div class="about-box">
-                    翰林码网络科技有限公司是一家充满活力的企业，致力于企业IT信息化工程维护和网站排名推广，是一家专业从事网站建设与推广、网络系统维护（IT外包）、网络工程施工的企业。以诚信为本，以质量求生存，本着一切按客户实际需求而经营，我们从市场的角度和客户的需求出发，帮助企业及其产品树立良好的视觉形象，拓展市场空间创造竞争优势，提升企业的无形资产。...
+                    {$_webSet['indexwords']}
                 </div>
                 <div class="about-link">
-                    <a href="#" title="关于我们">
+                    <a href="{:url('index/Details/index',['aid'=>6])}" target="_blank" title="关于我们">
                         查看更多
                         <i class="fa fa-angle-double-right">
                         </i>
@@ -107,63 +97,27 @@
 <div class="product-background">
     <div class="container">
         <div class="title-box">
-            <h2>
-                网站案例
-            </h2>
-            <p>
-            </p>
+            <h2>网站案例</h2>
         </div>
         <div class="row">
             <div class="product-box">
                 <ul class="product-wraper">
+                    {foreach name='article1Data' key='k' item='v'}
                     <li class="product-slide">
-                        <a href="#" title="翰林码网络科技公司">
-                                    <span>
-                                        <img data-original="__STATIC__/index/picture/1-1G1251509250-L.jpg"
-                                             alt="翰林码网络科技公司">
-                                    </span>
+                        <a href="{:url('index/Details/index',['aid'=>$v['id']])}" target="_blank" title="{$v['title']}">
+                            <span>
+                                <img data-original="__STATIC__/index{$v['thumb']}" alt="{$v['title']}">
+                            </span>
                             <h4>
-                                翰林码网络科技公司
+                                {$v['title']}
                             </h4>
                         </a>
                     </li>
-                    <li class="product-slide">
-                        <a href="#" title="翰林码网络科技公司">
-                                    <span>
-                                        <img data-original="__STATIC__/index/picture/1-1G125150Q80-L.jpg"
-                                             alt="翰林码网络科技公司">
-                                    </span>
-                            <h4>
-                                翰林码网络科技公司
-                            </h4>
-                        </a>
-                    </li>
-                    <li class="product-slide">
-                        <a href="#" title="翰林码网络科技公司">
-                                    <span>
-                                        <img data-original="__STATIC__/index/picture/1-1G125150G40-L.jpg"
-                                             alt="翰林码网络科技公司">
-                                    </span>
-                            <h4>
-                                翰林码网络科技公司
-                            </h4>
-                        </a>
-                    </li>
-                    <li class="product-slide">
-                        <a href="#" title="翰林码网络科技公司">
-                                    <span>
-                                        <img data-original="__STATIC__/index/picture/1-1G1251134340-L.jpg"
-                                             alt="翰林码网络科技公司">
-                                    </span>
-                            <h4>
-                                翰林码网络科技公司
-                            </h4>
-                        </a>
-                    </li>
+                    {/foreach}
                 </ul>
             </div>
             <div class="product-link">
-                <a href="#" title="查看更多">
+                <a href="{:url('index/Lists/index',['cid'=>17])}" target="_blank" title="查看更多">
                     查看更多
                     <i class="fa fa-angle-double-right">
                     </i>
@@ -175,64 +129,28 @@
 <div class="case-background" data-original="__STATIC__/index/picture/1510736954.jpg">
     <div class="container">
         <div class="title-box active">
-            <h2>
-                工程案例
-            </h2>
-            <p>
-            </p>
+            <h2>工程案例</h2>
         </div>
         <div class="row">
             <div class="case-box">
                 <ul class="case-wraper">
+                    {foreach name='article2Data' key='k' item='v'}
                     <li class="case-slide">
-                        <a href="#" title="翰林码网络科技公司">
-                                    <span>
-                                        <img data-original="__STATIC__/index/picture/1-1G1251509250-L.jpg"
-                                             alt="翰林码网络科技公司">
-                                    </span>
+                        <a href="{:url('index/Details/index',['aid'=>$v['id']])}" target="_blank" title="{$v['title']}">
+                            <span>
+                                <img data-original="__STATIC__/index{$v['thumb']}" alt="{$v['title']}">
+                            </span>
                             <h4>
-                                翰林码网络科技公司
+                                {$v['title']}
                             </h4>
                         </a>
                     </li>
-                    <li class="case-slide">
-                        <a href="#" title="翰林码网络科技公司">
-                                    <span>
-                                        <img data-original="__STATIC__/index/picture/1-1G125150Q80-L.jpg"
-                                             alt="翰林码网络科技公司">
-                                    </span>
-                            <h4>
-                                翰林码网络科技公司
-                            </h4>
-                        </a>
-                    </li>
-                    <li class="case-slide">
-                        <a href="#" title="翰林码网络科技公司">
-                                    <span>
-                                        <img data-original="__STATIC__/index/picture/1-1G125150G40-L.jpg"
-                                             alt="翰林码网络科技公司">
-                                    </span>
-                            <h4>
-                                翰林码网络科技公司
-                            </h4>
-                        </a>
-                    </li>
-                    <li class="case-slide">
-                        <a href="#" title="翰林码网络科技公司">
-                                    <span>
-                                        <img data-original="__STATIC__/index/picture/1-1G1251134340-L.jpg"
-                                             alt="翰林码网络科技公司">
-                                    </span>
-                            <h4>
-                                翰林码网络科技公司
-                            </h4>
-                        </a>
-                    </li>
+                    {/foreach}
                 </ul>
             </div>
         </div>
         <div class="about-link text-center">
-            <a href="#" title="查看更多">
+            <a href="{:url('index/Lists/index',['cid'=>19])}" target="_blank" title="查看更多">
                 查看更多
                 <i class="fa fa-angle-double-right">
                 </i>
@@ -243,323 +161,83 @@
 <div class="info-cut">
     <div class="container">
         <div class="title-box">
-            <h2>
-                新闻资讯
-            </h2>
-            <p>
-                新闻资讯
-            </p>
+            <h2>新闻资讯</h2>
         </div>
         <div class="row">
             <div class="info-box">
                 <ul class="info-wraper">
                     <li class="info-slide">
-                                <span>
-                                    <h3>
-                                        会馆活动
-                                    </h3>
-                                    <a href="#" title="查看更多">
-                                        <hr>
-                                        <hr>
-                                        <hr>
-                                    </a>
-                                </span>
+                        <span>
+                            <h3>行业新闻</h3>
+                            <a href="{:url('index/Lists/index',['cid'=>25])}" target="_blank" title="查看更多">
+                                <hr>
+                                <hr>
+                                <hr>
+                            </a>
+                        </span>
                         <ol>
+                            {foreach name='article3Data' key='k' item='v'}
                             <li>
                                 <h4>
-                                    <a href="#" title="2017北京 首届中国瑜伽康复经营发展大会">
-                                        2017北京 首届中国瑜伽康复经营发展大会
+                                    <a href="{:url('index/Details/index',['aid'=>$v['id']])}" target="_blank"
+                                       title="{$v['title']}">
+                                        {$v['title']}
                                     </a>
                                 </h4>
-                                <p>
-                                    导读:瑜伽康复势必成为中国瑜伽私教未来的发展趋势！所以本次大会将以现代科学作为瑜伽康复私教发展的核心；瑜伽康复的定义：是瑜伽与康复医学、生物力学及神经科学的最新知识...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月28日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                    <a href='/tags.php?/%E7%91%9C%E4%BC%BD/'>
-                                        瑜伽
-                                    </a>
-                                    <a href='/tags.php?/%E5%BA%B7%E5%A4%8D/'>
-                                        康复
-                                    </a>
-                                </b>
+                                <p>{$v['digest']}</p>
+                                <b><i>{$v['create_time']|date="Y-m-d H:i:s",###}</i></b>
                             </li>
-                            <li>
-                                <h4>
-                                    <a href="#" title="2018第四届“瑜伽之爱”年度盛典 相约北京">
-                                        2018第四届“瑜伽之爱”年度盛典 相约北京
-                                    </a>
-                                </h4>
-                                <p>
-                                    亲爱的伽人们，自瑜伽之爱年度盛典启动以来，瑜伽人响应的热情超乎意料，大会将要呈献的精彩超乎意料，大会筹备组在感动中超乎常规的实施各项工作：包括场地落实、视频制作、...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月25日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                </b>
-                            </li>
-                            <li>
-                                <h4>
-                                    <a href="#" title="2017 瑜伽年度大会---苏州站">
-                                        2017 瑜伽年度大会---苏州站
-                                    </a>
-                                </h4>
-                                <p>
-                                    大 会 流 程 8:00---8:40签到，领取物品。 瑜伽服一套， 披肩一件， 瑜伽铺巾一条。 8:50禁止入场，9:00开幕 1：致开幕词；2：集体唱诵；
-                                    9:15---10:15 外教名师授课 外教名师授课，感受瑜伽...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月25日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                </b>
-                            </li>
-                            <li>
-                                <h4>
-                                    <a href="#" title="2017国际瑜伽康复理疗峰会干货满满、大咖云集">
-                                        2017国际瑜伽康复理疗峰会干货满满、大咖云集
-                                    </a>
-                                </h4>
-                                <p>
-                                    自从国际瑜伽康复理疗峰会推出以后， 不断有小伙伴问我们要日程， 但由于邀请到的大咖越来越多， 峰会日程和演讲内容也在不断更新， 这份千呼万唤始出来的日程表，
-                                    呐呐呐，让...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月25日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                    <a href='/tags.php?/%E5%9B%BD%E9%99%85%E7%91%9C%E4%BC%BD/'>
-                                        国际瑜伽
-                                    </a>
-                                    <a href='/tags.php?/%E5%BA%B7%E5%A4%8D%E7%90%86%E7%96%97%E5%B3%B0%E4%BC%9A/'>
-                                        康复理疗峰会
-                                    </a>
-                                    <a href='/tags.php?/%E5%8D%83%E5%91%BC%E4%B8%87%E5%94%A4/'>
-                                        千呼万唤
-                                    </a>
-                                </b>
-                            </li>
+                            {/foreach}
                         </ol>
                     </li>
                     <li class="info-slide">
-                                <span>
-                                    <h3>
-                                        瑜伽资讯
-                                    </h3>
-                                    <a href="#" title="查看更多">
-                                        <hr>
-                                        <hr>
-                                        <hr>
-                                    </a>
-                                </span>
+                        <span>
+                            <h3>企业新闻</h3>
+                            <a href="{:url('index/Lists/index',['cid'=>26])}" target="_blank" title="查看更多">
+                                <hr>
+                                <hr>
+                                <hr>
+                            </a>
+                        </span>
                         <ol>
+                            {foreach name='article4Data' key='k' item='v'}
                             <li>
                                 <h4>
-                                    <a href="#" title="练瑜伽为什么要选择瑜伽馆，而非健身房？">
-                                        练瑜伽为什么要选择瑜伽馆，而非健身房？
+                                    <a href="{:url('index/Details/index',['aid'=>$v['id']])}" target="_blank"
+                                       title="{$v['title']}">
+                                        {$v['title']}
                                     </a>
                                 </h4>
-                                <p>
-                                    1、环境 瑜伽馆练习环境安静而舒适，人人摒气凝声，能为练习者营造平和的心态，有助于减轻心理压力。 2、课程
-                                    也会有一些瑜伽工作室很针对性的开始特色瑜伽课程，专于两三类瑜...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月28日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                </b>
+                                <p>{$v['digest']}</p>
+                                <b><i>{$v['create_time']|date="Y-m-d H:i:s",###}</i></b>
                             </li>
-                            <li>
-                                <h4>
-                                    <a href="#" title="2017全民健身运动报告怎么看瑜伽市场">
-                                        2017全民健身运动报告怎么看瑜伽市场
-                                    </a>
-                                </h4>
-                                <p>
-                                    2009年，为了纪念北京成功举办奥运会，也为了倡导人民群众更广泛地参加体育健身运动，国务院将每年的8月8日定为全民健身日。在全民健身日8周年之际，清数大数据产业联盟（原清华...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月25日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                </b>
-                            </li>
-                            <li>
-                                <h4>
-                                    <a href="#" title="发力瑜伽市场，将在5000家店内开设瑜伽裤专卖区">
-                                        发力瑜伽市场，将在5000家店内开设瑜伽裤专卖区
-                                    </a>
-                                </h4>
-                                <p>
-                                    日前，Nike在投资者大会上正式宣布，将于下月正式在旗下5000家专卖店开设运动女裤专卖区pant
-                                    studios，正式发力瑜伽市场。Nike管理层曾表示，随着运动装备越来越流行，紧身运动裤将会...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月25日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                </b>
-                            </li>
-                            <li>
-                                <h4>
-                                    <a href="#" title="2017抚仙湖国际瑜伽文化节隆重举行 最美瑜伽精彩">
-                                        2017抚仙湖国际瑜伽文化节隆重举行 最美瑜伽精彩
-                                    </a>
-                                </h4>
-                                <p>
-                                    2017抚仙湖国际瑜伽文化节以静心舒畅、瑜到澄江为主题，普及推广国家体育总局、全国瑜伽运动推广委员会2017年最新审定的《健身瑜伽108式体位标准》，服务全民健身，倡导健康文明...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月25日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                </b>
-                            </li>
+                            {/foreach}
                         </ol>
                     </li>
                     <li class="info-slide">
-                                <span>
-                                    <h3>
-                                        常见问题
-                                    </h3>
-                                    <a href="#" title="查看更多">
-                                        <hr>
-                                        <hr>
-                                        <hr>
-                                    </a>
-                                </span>
+                        <span>
+                            <h3>
+                                活动新闻
+                            </h3>
+                            <a href="{:url('index/Lists/index',['cid'=>27])}" target="_blank" title="查看更多">
+                                <hr>
+                                <hr>
+                                <hr>
+                            </a>
+                        </span>
                         <ol>
+                            {foreach name='article5Data' key='k' item='v'}
                             <li>
                                 <h4>
-                                    <a href="#" title="练习瑜伽时，我们的膝盖为什么总是“很受伤”">
-                                        练习瑜伽时，我们的膝盖为什么总是“很受伤”
+                                    <a href="{:url('index/Details/index',['aid'=>$v['id']])}" target="_blank"
+                                       title="{$v['title']}">
+                                        {$v['title']}
                                     </a>
                                 </h4>
-                                <p>
-                                    小编刚开始接触瑜伽时还自我安慰膝盖疼痛是正常现象，对膝盖的敏感性不屑一顾，没有意识到它是多么容易受伤的部位。看到瑜伽馆里没有多少人使用瑜伽辅具，还想：别人都不用，...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月27日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                    <a href='/tags.php?/%E7%91%9C%E4%BC%BD/'>
-                                        瑜伽
-                                    </a>
-                                    <a href='/tags.php?/%E7%91%9C%E4%BC%BD%E8%BE%85%E5%85%B7/'>
-                                        瑜伽辅具
-                                    </a>
-                                </b>
+                                <p>{$v['digest']}</p>
+                                <b><i>{$v['create_time']|date="Y-m-d H:i:s",###}</i></b>
                             </li>
-                            <li>
-                                <h4>
-                                    <a href="#" title="瑜伽行业大会红红火火，实际境遇究竟如何">
-                                        瑜伽行业大会红红火火，实际境遇究竟如何
-                                    </a>
-                                </h4>
-                                <p>
-                                    瑜伽大会，是通过瑜伽导师培训课程吸引瑜伽练习者、瑜伽职业教练、瑜伽馆主、瑜伽产品品牌短时间向某一地点聚拢、实现资源互换的产业聚集形式。据小编统计，2016年中国各地举办...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月25日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                </b>
-                            </li>
-                            <li>
-                                <h4>
-                                    <a href="#" title="当下瑜伽运动这么流行，但瑜伽馆是个大生意吗">
-                                        当下瑜伽运动这么流行，但瑜伽馆是个大生意吗
-                                    </a>
-                                </h4>
-                                <p>
-                                    继去年国内 健身房 被投资机构风风火火投完一轮之后， 瑜伽
-                                    馆也开始升温，去年年中到今年年初，连锁瑜伽馆桔子瑜伽、瑜舍瑜伽以及从线上视频开拓到线下瑜伽馆的Wake纷纷获得投...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月25日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                </b>
-                            </li>
-                            <li>
-                                <h4>
-                                    <a href="#" title="因为焦虑症快要抓狂？10个瑜伽姿势教你轻松摆脱">
-                                        因为焦虑症快要抓狂？10个瑜伽姿势教你轻松摆脱
-                                    </a>
-                                </h4>
-                                <p>
-                                    焦虑症到底是什么？ 一般来说，焦虑症是由恐惧，担心，忧虑，紧张等引起的一种精神疾病。
-                                    这些情绪可能会影响我们的日常行为，长久如此，甚至会损害我们的身体健康。轻度焦虑...
-                                </p>
-                                <b>
-                                    <i>
-                                        2017年11月25日
-                                    </i>
-                                    <em class="fa fa-tag">
-                                    </em>
-                                    <strong>
-                                        标签：
-                                    </strong>
-                                </b>
-                            </li>
+                            {/foreach}
                         </ol>
                     </li>
                 </ul>

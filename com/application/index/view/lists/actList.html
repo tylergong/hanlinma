@@ -1,10 +1,10 @@
 {extend name='main'/}
 {block name='content'}
-<div class="met-banner banner-ny-h" data-height='' style=''>
-    <div class="slick-slide">
-        <img class="cover-image" src="__STATIC__/index/pic/banner01.jpg" sizes="(max-width: 767px) 767px" alt="新闻资讯">
-    </div>
-</div>
+<!--<div class="met-banner banner-ny-h" data-height='' style=''>-->
+    <!--<div class="slick-slide">-->
+        <!--<img class="cover-image" src="__STATIC__/index/pic/banner01.jpg" sizes="(max-width: 767px) 767px" alt="新闻资讯">-->
+    <!--</div>-->
+<!--</div>-->
 <section class="met-content animsition">
     <div class="container">
         <div class="row">
@@ -19,9 +19,31 @@
                                     </a>
                                 </li>
                                 <li class="dropdown">
+                                    <a href="###"
+                                       class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
+                                       title="{$categoryFatherData['cname']}">
+                                        {$categoryFatherData['cname']}
+                                        <i class="caret"></i>
+                                    </a>
+                                    <ul class="dropdown-menu bullet">
+                                        <li>
+                                            <a href="{:url('index/Lists/index',['cid'=>$categoryFatherData['id']])}"
+                                               title="全部">
+                                                全部
+                                            </a>
+                                        </li>
+                                        {foreach name='categorySonData' key='k' item='v'}
+                                        <li>
+                                            <a href="{:url('index/Lists/index',['cid'=>$v['id']])}" title="$v['cname']">{$v['cname']}</a>
+                                        </li>
+                                        {/foreach}
+                                    </ul>
+                                </li>
+                                {if condition="$categoryData['id']!=$categoryFatherData['id']"}
+                                <li class="dropdown">
                                     {$categoryData['cname']}
                                 </li>
-
+                                {/if}
                             </ol>
                         </div>
                     </div>
