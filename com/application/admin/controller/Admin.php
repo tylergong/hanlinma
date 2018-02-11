@@ -99,11 +99,11 @@ class Admin extends Common {
         $this->assign('adminData', $adminData);
 
         // 获取当前已分组的 ID
-        $accessData = db('admin_group')->where('admin_id', $admin_id)->column('group_id');
+        $accessData = db('hlm_admin_group')->where('admin_id', $admin_id)->column('group_id');
         $this->assign('accessData', $accessData);
 
         // 获取分组信息
-        $groupData = db('group')->where('status', 1)->select();
+        $groupData = db('hlm_group')->where('status', 1)->select();
         $this->assign('groupData', $groupData);
 
         return $this->fetch();

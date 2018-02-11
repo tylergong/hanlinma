@@ -12,17 +12,17 @@ class Details extends Common {
         $article_id = input('param.aid');
         if ($article_id) {
             // 获取文章信息
-            $articleData = db('article')->alias('a')
-                ->join('category c', 'a.cid=c.id')
+            $articleData = db('hlm_article')->alias('a')
+                ->join('hlm_category c', 'a.cid=c.id')
                 ->where('a.id', $article_id)
                 ->where('a.is_del', 0)
                 ->field('a.id,a.title,a.create_time,a.author,a.content,a.click_num,a.cid,c.cname,c.pid')
                 ->find();
             if ($articleData) {
                 // 新增一次点击次数
-                db('article')->where('id', $article_id)->setInc('click_num');
+                db('hlm_article')->where('id', $article_id)->setInc('click_num');
                 // 查询文章当前父分类
-                $articleData['father'] = db('category')->where('id', $articleData['pid'])->where('id', '<>', 21)->find();
+                $articleData['father'] = db('hlm_category')->where('id', $articleData['pid'])->where('id', '<>', 21)->find();
                 // 转义字符
                 $articleData['content'] = stripslashes($articleData['content']);
                 $this->assign('articleData', $articleData);

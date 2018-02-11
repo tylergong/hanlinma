@@ -7,7 +7,7 @@ use think\Model;
 class Article extends Model {
     //
     protected $pk = 'id';
-    protected $table = 'article';
+    protected $table = 'hlm_article';
     protected $insert = ['admin_id', 'create_time'];//新增时自动添加字段
     protected $update = ['up_time'];//修改时自动添加字段
 
@@ -28,8 +28,8 @@ class Article extends Model {
 
     // 获取列表
     public function getAll($where = array('is_del' => 0), $orderby = 'create_time desc') {
-        $allList = db('article')->alias('a')
-            ->join('category c', 'a.cid = c.id')
+        $allList = db('hlm_article')->alias('a')
+            ->join('hlm_category c', 'a.cid = c.id')
             ->field('a.id,a.title,a.author,a.create_time,a.click_num,c.cname')
             ->where('a.is_del', $where['is_del']);
         if (!empty($where['title'])) {
@@ -44,8 +44,8 @@ class Article extends Model {
 
     // 获取回收站列表
     public function getRecycleAll() {
-        return db('article')->alias('a')
-            ->join('category c', 'a.cid=c.id')
+        return db('hlm_article')->alias('a')
+            ->join('hlm_category c', 'a.cid=c.id')
             ->field('a.id,a.title,a.author,a.create_time,a.del_time,a.click_num,c.cname')
             ->where('a.is_del', 1)
             ->order('a.create_time desc')

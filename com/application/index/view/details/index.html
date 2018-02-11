@@ -79,7 +79,10 @@
                         {foreach name='_newArticleData' key='k' item='v'}
                         <li>
                             <h6>
-                                <a href="{:url('index/Details/index',['aid'=>$v['id']])}" title="{$v['title']}">{$v['title']}</a>
+                                <a href="{:url('index/Details/index',['aid'=>$v['id']])}" target="_blank"
+                                   title="{$v['title']}">
+                                    {$v['title']}
+                                </a>
                             </h6>
                         </li>
                         {/foreach}

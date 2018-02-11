@@ -1,9 +1,9 @@
 {extend name='main'/}
 {block name='content'}
 <!--<div class="met-banner banner-ny-h" data-height='' style=''>-->
-    <!--<div class="slick-slide">-->
-        <!--<img class="cover-image" src="__STATIC__/index/pic/banner01.jpg" sizes="(max-width: 767px) 767px" alt="新闻资讯">-->
-    <!--</div>-->
+<!--<div class="slick-slide">-->
+<!--<img class="cover-image" src="__STATIC__/index/pic/banner01.jpg" sizes="(max-width: 767px) 767px" alt="新闻资讯">-->
+<!--</div>-->
 <!--</div>-->
 <section class="met-content animsition">
     <div class="container">
@@ -86,7 +86,10 @@
                         {foreach name='_newArticleData' key='k' item='v'}
                         <li>
                             <h6>
-                                <a href="{:url('index/Details/index',['aid'=>$v['id']])}" title="{$v['title']}">{$v['title']}</a>
+                                <a href="{:url('index/Details/index',['aid'=>$v['id']])}" target="_blank"
+                                   title="{$v['title']}">
+                                    {$v['title']}
+                                </a>
                             </h6>
                         </li>
                         {/foreach}

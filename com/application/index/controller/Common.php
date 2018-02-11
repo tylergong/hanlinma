@@ -33,12 +33,12 @@ class Common extends Controller {
 
     // 获取网站配置项数据
     public function loadWebSet() {
-        return db('webset')->column('webset_value', 'webset_name');
+        return db('hlm_webset')->column('webset_value', 'webset_name');
     }
 
     // 获取导航数据
     public function loadCateData() {
-        $category = db('category');
+        $category = db('hlm_category');
         $cateData = $category->where('pid', 0)->where('is_show', 1)->order('csort asc')->select();
         if (is_array($cateData)) {
             foreach ($cateData as $k => &$v) {
@@ -55,12 +55,12 @@ class Common extends Controller {
 
     // 获取友情链接数据
     public function loadLinkData() {
-        return db('flinks')->order('orderby desc')->limit(6)->select();
+        return db('hlm_flinks')->order('orderby desc')->limit(6)->select();
     }
 
     // 获取最新动态数据（分类为24的新闻资讯）
     public function loadNewArticleData() {
-        return db('article')->field('id,title')->whereIn('cid', [24, 25, 26, 27])->order('create_time desc')->limit(6)->select();
+        return db('hlm_article')->field('id,title')->whereIn('cid', [24, 25, 26, 27])->order('create_time desc')->limit(6)->select();
     }
 
 }

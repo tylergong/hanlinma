@@ -8,7 +8,7 @@ use think\Validate;
 
 class Admin extends Model {
     protected $pk = 'id';
-    protected $table = 'admins';
+    protected $table = 'hlm_admins';
     protected $insert = ['create_time'];//新增时自动添加字段
 
     // 格式化状态 汉字显示
@@ -90,8 +90,8 @@ class Admin extends Model {
     public function getAll() {
         $userData = $this->field('id,name,is_show')->order('is_show desc, id desc')->paginate(8);
         foreach ($userData as $k => &$v) {
-            $groups = db('admin_group')->alias('ag')
-                ->join('group g', 'ag.group_id=g.id', 'LEFT')
+            $groups = db('hlm_admin_group')->alias('ag')
+                ->join('hlm_group g', 'ag.group_id=g.id', 'LEFT')
                 ->where('admin_id', $v['id'])
                 ->column('gname');
             $v['groups'] = implode(',', $groups);
@@ -193,13 +193,13 @@ class Admin extends Model {
             return ['valid' => 0, 'msg' => '请选择用户组'];
         }
         // 2、删除用户原有关系
-        db('admin_group')->where('admin_id', $data['id'])->delete();
+        db('hlm_admin_group')->where('admin_id', $data['id'])->delete();
         // 3、组合入库数据
         foreach ($data['group_id'] as $v) {
             $list[] = ['admin_id' => $data['id'], 'group_id' => $v];
         }
         // 4、批量入库
-        if (db('admin_group')->insertAll($list)) {
+        if (db('hlm_admin_group')->insertAll($list)) {
             return ['valid' => 1, 'msg' => '设置分组成功'];
         } else {
             return ['valid' => 0, 'msg' => '设置分组失败'];

@@ -11,8 +11,8 @@ class Index extends Common {
     // 首页
     public function index() {
         // 获取分类文章列表
-        $article1Data = db('article')->where('cid', 17)->limit(4)->select();
-        $article2Data = db('article')->where('cid', 19)->limit(4)->select();
+        $article1Data = db('hlm_article')->where('cid', 17)->limit(4)->select();
+        $article2Data = db('hlm_article')->where('cid', 19)->limit(4)->select();
         $article3Data = $this->getIndexArticle(25);
         $article4Data = $this->getIndexArticle(26);
         $article5Data = $this->getIndexArticle(27);
@@ -25,7 +25,7 @@ class Index extends Common {
     }
 
     protected function getIndexArticle($cid) {
-        $articleData = db('article')->where('cid', $cid)->limit(4)->select();
+        $articleData = db('hlm_article')->where('cid', $cid)->limit(4)->select();
         foreach ($articleData as &$v) {
             // 替换掉各种标签 空格 换行符等
             $tmp = preg_replace(array('/<img(.*?)>/', '/<(.*?)>/', '/<\/(.*?)>/', '/<br \/>/', '/&nbsp;/', '/&lt;(.*?)&gt;/'), '', $v['content']);

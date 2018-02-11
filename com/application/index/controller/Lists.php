@@ -13,24 +13,24 @@ class Lists extends Common {
         if (in_array($cid, [24, 25, 26, 27])) {
             // 文章列表
             // 获取当前分类信息
-            $categoryData = db('category')->where('id', $cid)->find();
+            $categoryData = db('hlm_category')->where('id', $cid)->find();
             if ($categoryData['id'] == 24) {
                 $categoryFatherData = $categoryData;
-                $categorySonData = db('category')->where('pid', $cid)->where('is_show', 1)->order('csort asc')->select();
+                $categorySonData = db('hlm_category')->where('pid', $cid)->where('is_show', 1)->order('csort asc')->select();
                 foreach ($categorySonData as $v) {
                     $cids[] = $v['id'];
                 }
                 array_push($cids, $cid);
             } else {
-                $categoryFatherData = db('category')->where('id', $categoryData['pid'])->find();
-                $categorySonData = db('category')->where('pid', $categoryData['pid'])->where('is_show', 1)->order('csort asc')->select();
+                $categoryFatherData = db('hlm_category')->where('id', $categoryData['pid'])->find();
+                $categorySonData = db('hlm_category')->where('pid', $categoryData['pid'])->where('is_show', 1)->order('csort asc')->select();
             }
             $this->assign('categoryData', $categoryData);
             $this->assign('categoryFatherData', $categoryFatherData);
             $this->assign('categorySonData', $categorySonData);
 
             // 获取当前栏目下文章列表
-            $articleData = db('article')->alias('a');
+            $articleData = db('hlm_article')->alias('a');
             if ($categoryData['id'] == 24) {
                 $articleData = $articleData->whereIn('a.cid', $cids);
             } else {
@@ -52,24 +52,24 @@ class Lists extends Common {
         } else if (in_array($cid, [16, 17, 18, 19, 20])) {
             // 案例列表
             // 获取当前分类信息
-            $categoryData = db('category')->where('id', $cid)->find();
+            $categoryData = db('hlm_category')->where('id', $cid)->find();
             if ($categoryData['pid'] == 0) {
                 $categoryFatherData = $categoryData;
-                $categorySonData = db('category')->where('pid', $cid)->where('is_show', 1)->order('csort asc')->select();
+                $categorySonData = db('hlm_category')->where('pid', $cid)->where('is_show', 1)->order('csort asc')->select();
                 foreach ($categorySonData as $v) {
                     $cids[] = $v['id'];
                 }
                 array_push($cids, $cid);
             } else {
-                $categoryFatherData = db('category')->where('id', $categoryData['pid'])->find();
-                $categorySonData = db('category')->where('pid', $categoryData['pid'])->where('is_show', 1)->order('csort asc')->select();
+                $categoryFatherData = db('hlm_category')->where('id', $categoryData['pid'])->find();
+                $categorySonData = db('hlm_category')->where('pid', $categoryData['pid'])->where('is_show', 1)->order('csort asc')->select();
             }
             $this->assign('categoryData', $categoryData);
             $this->assign('categoryFatherData', $categoryFatherData);
             $this->assign('categorySonData', $categorySonData);
 
             // 获取当前栏目下文章列表
-            $articleData = db('article')->alias('a');
+            $articleData = db('hlm_article')->alias('a');
             if ($categoryData['pid'] == 0) {
                 $articleData = $articleData->whereIn('a.cid', $cids);
             } else {

@@ -99,7 +99,7 @@ class Group extends Common {
         $this->assign('accessData', $accessData);
 
         // 获取所有规则数据
-        $rulesData = Arr::tree(db('rules')->select(), 'rname', 'id', 'pid');
+        $rulesData = Arr::tree(db('hlm_rules')->select(), 'rname', 'id', 'pid');
         $this->assign('rulesData', $rulesData);
 
         return $this->fetch();

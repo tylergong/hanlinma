@@ -256,10 +256,10 @@ return [
     'auth'                  =>  [
         'AUTH_ON' => true,                          // 认证开关
         'AUTH_TYPE' => 1,                           // 认证方式，1为实时认证；2为登录认证。
-        'AUTH_GROUP' => 'group',                 // 用户组数据表名
-        'AUTH_GROUP_ACCESS' => 'admin_group',    // 用户-用户组关系表
-        'AUTH_RULE' => 'rules',                  // 权限规则表
-        'AUTH_USER' => 'admins'                   // 用户信息表
+        'AUTH_GROUP' => 'hlm_group',                 // 用户组数据表名
+        'AUTH_GROUP_ACCESS' => 'hlm_admin_group',    // 用户-用户组关系表
+        'AUTH_RULE' => 'hlm_rules',                  // 权限规则表
+        'AUTH_USER' => 'hlm_admins'                   // 用户信息表
     ],
 
 

@@ -7,7 +7,7 @@ use think\Model;
 class Link extends Model {
     //
     protected $pk = 'id';
-    protected $table = 'flinks';
+    protected $table = 'hlm_flinks';
 
     // 获取所有
     public function getAll() {

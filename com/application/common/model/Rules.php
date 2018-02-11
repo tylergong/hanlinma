@@ -8,7 +8,7 @@ use think\Model;
 class Rules extends Model {
     //
     protected $pk = 'id';
-    protected $table = 'rules';
+    protected $table = 'hlm_rules';
 
     // 格式化状态 汉字显示
     public function getStatusTxtAttr($value, $data) {
@@ -19,7 +19,7 @@ class Rules extends Model {
     // 获取规则数据【树状结构】
     public function getAll() {
         // 使用方法参考 hdphp 手册【hdphp.com】-->搜索 数组增强-->搜索 tree
-        return Arr::tree(db('rules')->select(), 'rname', 'id', 'pid');
+        return Arr::tree(db('hlm_rules')->select(), 'rname', 'id', 'pid');
     }
 
     // 添加
@@ -37,11 +37,11 @@ class Rules extends Model {
     // 处理所属权限
     public function getRulesData($id) {
         //1、首先找到 $id 的子集
-        $rules_ids = $this->getSon(db('rules')->select(), $id);
+        $rules_ids = $this->getSon(db('hlm_rules')->select(), $id);
         //2、将子集追加进去
         $rules_ids[] = $id;
         //3、找到除了他们之外的数据,变为数状结构
-        return Arr::tree(db('rules')->whereNotIn('id', $rules_ids)->select(), 'rname', 'id', 'pid');
+        return Arr::tree(db('hlm_rules')->whereNotIn('id', $rules_ids)->select(), 'rname', 'id', 'pid');
     }
 
     // 找某个 ID 的子集

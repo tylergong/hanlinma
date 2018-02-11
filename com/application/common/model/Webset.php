@@ -7,7 +7,7 @@ use think\Model;
 class Webset extends Model {
     //
     protected $pk = 'id';
-    protected $table = 'webset';
+    protected $table = 'hlm_webset';
 
     // 编辑
     public function edit($data) {

@@ -7,7 +7,7 @@ use think\Model;
 class Group extends Model {
     //
     protected $pk = 'id';
-    protected $table = 'group';
+    protected $table = 'hlm_group';
 
     // 格式化状态 汉字显示
     public function getStatusTxtAttr($value, $data) {
@@ -67,7 +67,7 @@ class Group extends Model {
         // 2、格式化获取到的权限为字符串
         $rules_str = implode(',', $data['rules_id']);
         // 3、更新用户组权限
-        if (db('group')->where('id', $data['id'])->update(['rules' => $rules_str])) {
+        if (db('hlm_group')->where('id', $data['id'])->update(['rules' => $rules_str])) {
             return ['valid' => 1, 'msg' => '设置分组成功'];
         } else {
             return ['valid' => 0, 'msg' => '设置分组失败'];

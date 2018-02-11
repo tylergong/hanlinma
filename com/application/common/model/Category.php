@@ -8,12 +8,12 @@ use think\Model;
 class Category extends Model {
     //
     protected $pk = 'id';
-    protected $table = 'category';
+    protected $table = 'hlm_category';
 
     // 获取分类数据【树状结构】
     public function getAll() {
         // 使用方法参考 hdphp 手册【hdphp.com】-->搜索 数组增强-->搜索 tree
-        return Arr::tree(db('category')->select(), 'cname', 'id', 'pid');
+        return Arr::tree(db('hlm_category')->select(), 'cname', 'id', 'pid');
     }
 
     // 添加
@@ -31,11 +31,11 @@ class Category extends Model {
     // 处理所属分类
     public function getCateData($id) {
         //1、首先找到 $id 的子集
-        $cate_ids = $this->getSon(db('category')->select(), $id);
+        $cate_ids = $this->getSon(db('hlm_category')->select(), $id);
         //2、将子集追加进去
         $cate_ids[] = $id;
         //3、找到除了他们之外的数据,变为数状结构
-        return Arr::tree(db('category')->whereNotIn('id', $cate_ids)->select(), 'cname', 'id', 'pid');
+        return Arr::tree(db('hlm_category')->whereNotIn('id', $cate_ids)->select(), 'cname', 'id', 'pid');
     }
 
     // 找某个 ID 的子集
