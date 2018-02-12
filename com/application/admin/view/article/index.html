@@ -33,12 +33,12 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th width="5%">编号</th>
-                <th width="40%">标题</th>
-                <th width="40%">列表图</th>
-                <th width="10%">作者</th>
+                <th width="8%">编号</th>
+                <th width="36%">标题</th>
+                <th width="24%">列表图</th>
+                <th width="8%">作者</th>
                 <th width="8%">栏目</th>
-                <th width="10%" id="clickSort" style="cursor:pointer">点击次数
+                <th width="8%" id="clickSort" style="cursor:pointer">click
                     {if condition="input('param.order')=='asc'"}
                     <li class="fa fa-angle-down hidden"></li>
                     <li class="fa fa-angle-up "></li>
@@ -47,7 +47,7 @@
                     <li class="fa fa-angle-up hidden"></li>
                     {/if}
                 </th>
-                <th width="10%" id="timeSort" style="cursor:pointer">添加时间
+                <th width="8%" id="timeSort" style="cursor:pointer">添加时间
                     {if condition="input('param.order')=='asc'"}
                     <li class="fa fa-angle-down hidden"></li>
                     <li class="fa fa-angle-up "></li>
@@ -140,7 +140,7 @@
     }
 
     // 按 点击次数 排序 \ 按 添加时间 排序
-    $(document).on('click', '#clickSort,#timeSort', function () {
+    $(document).on('click', '#clickId,#clickSort,#timeSort', function () {
         $(this).children('.fa-angle-up').toggleClass('hidden');
         $(this).children('.fa-angle-down').toggleClass('hidden');
         var sort = 'create_time';
