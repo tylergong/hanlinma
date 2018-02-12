@@ -53,7 +53,7 @@
                         {foreach name='articleData' key='k' item='v'}
                         <li>
                             <a class="img" href="{:url('index/Details/index',['aid'=>$v['id']])}" title="{$v['title']}">
-                                <img src="__STATIC__/index/{$v['thumb']}" alt="{$v['title']}">
+                                <img src="{$v['thumb']}" alt="{$v['title']}">
                             </a>
                             <h4>
                                 <a href="{:url('index/Details/index',['aid'=>$v['id']])}" ​title="{$v['title']}">{$v['title']}</a>
