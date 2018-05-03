@@ -14,12 +14,16 @@ return [
     'type'            => 'mysql',
     // 服务器地址
     'hostname'        => '127.0.0.1',
+    #'hostname'        => 'localhost',
     // 数据库名
     'database'        => 'hanlinma',
+    #'database'        => 'tylergong',
     // 用户名
     'username'        => 'root',
+    #'username'        => 'tylergong',
     // 密码
     'password'        => '111111',
+    #'password'        => 'AD0EDEDC043bae',
     // 端口
     'hostport'        => '',
     // 连接dsn
