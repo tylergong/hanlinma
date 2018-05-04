@@ -11,7 +11,7 @@ class Index extends Common {
     // 首页
     public function index() {
         // 获取分类文章列表
-        $article1Data = db('hlm_article')->where('cid', 17)->limit(4)->select();
+        $article1Data = db('hlm_article')->where('cid', 17)->limit(8)->select();
         $article2Data = db('hlm_article')->where('cid', 19)->limit(4)->select();
         $article3Data = $this->getIndexArticle(25);
         $article4Data = $this->getIndexArticle(26);

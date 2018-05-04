@@ -32,8 +32,7 @@
                     <select class="js-example-basic-single form-control" name="pid">
                         <option value="0">顶级栏目</option>
                         {foreach name='cateData' key='k' item='v'}
-                        <option value="{$v.id}" {if condition="$oldData.pid==$v.id" }selected{
-                        /if}>{$v._cname}</option>
+                        <option value="{$v.id}" {if condition="$oldData.pid==$v.id" }selected{/if}>{$v._cname}</option>
                         {/foreach}
                     </select>
                 </div>

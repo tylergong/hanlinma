@@ -1,0 +1,102 @@
+{extend name='main'/}
+{block name='content'}
+<!--<div class="met-banner banner-ny-h" data-height='' style=''>-->
+<!--<div class="slick-slide">-->
+<!--<img class="cover-image" src="__STATIC__/index/pic/banner01.jpg" sizes="(max-width: 767px) 767px" alt="新闻资讯">-->
+<!--</div>-->
+<!--</div>-->
+<section class="met-content animsition">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 met-cons">
+                <div class="met-position  pattern-show">
+                    <div class="container">
+                        <div class="row">
+                            <ol class="breadcrumb">
+                                <li>
+                                    <a href="{:url('/')}" title="首页">
+                                        <i class="icon wb-home" aria-hidden="true"></i>首页
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="###"
+                                       class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
+                                       title="{$categoryFatherData['cname']}">
+                                        {$categoryFatherData['cname']}
+                                        <!--<i class="caret"></i>-->
+                                    </a>
+                                    <!--<ul class="dropdown-menu bullet">-->
+                                        <!--<li>-->
+                                            <!--<a href="{:url('index/Lists/index',['cid'=>$categoryFatherData['id']])}"-->
+                                               <!--title="全部">-->
+                                                <!--全部-->
+                                            <!--</a>-->
+                                        <!--</li>-->
+                                        <!--{foreach name='categorySonData' key='k' item='v'}-->
+                                        <!--<li>-->
+                                            <!--<a href="{:url('index/Lists/index',['cid'=>$v['id']])}" title="$v['cname']">{$v['cname']}</a>-->
+                                        <!--</li>-->
+                                        <!--{/foreach}-->
+                                    <!--</ul>-->
+                                </li>
+                                <!--{if condition="$categoryData['id']!=$categoryFatherData['id']"}-->
+                                <!--<li class="dropdown">-->
+                                    <!--{$categoryData['cname']}-->
+                                <!--</li>-->
+                                <!--{/if}-->
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="met-news-list news-lists">
+                    <ul class="met-page-ajax" data-scale=''>
+                        {foreach name='articleData' key='k' item='v'}
+                        <li>
+                            <a class="img" href="{:url('index/Details/index',['aid'=>$v['id']])}" title="{$v['title']}">
+                                <img src="{$v['thumb']}" alt="{$v['title']}">
+                            </a>
+                            <h4>
+                                <a href="{:url('index/Details/index',['aid'=>$v['id']])}" ​title="{$v['title']}">{$v['title']}</a>
+                            </h4>
+                            <!--<p class="info">-->
+                                <!--<span><i class="fa fa-calendar"></i>{$v['create_time']|date="Y-m-d H:i:s",###}</span>-->
+                                <!--<span><i class="fa fa-pencil-square"></i>{$v['author']}</span>-->
+                                <!--<span><i class="icon wb-eye"></i>{$v['click_num']}</span>-->
+                            <!--</p>-->
+                            <p class="des">
+                                {$v['digest']}
+                            </p>
+                            <p class="more">
+                                <a href="{:url('index/Details/index',['aid'=>$v['id']])}" title="{$v['title']}">
+                                    阅读更多>>
+                                </a>
+                            </p>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+                <div class="pagination pagination-sm pull-right">
+                    {$articleData->render()}
+                </div>
+            </div>
+            <div class="col-md-3 met-conx">
+                <div class="met-information">
+                    <h3>最新动态</h3>
+                    <ul>
+                        {foreach name='_newArticleData' key='k' item='v'}
+                        <li>
+                            <h6>
+                                <a href="{:url('index/Details/index',['aid'=>$v['id']])}" target="_blank"
+                                   title="{$v['title']}">
+                                    {$v['title']}
+                                </a>
+                            </h6>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{/block}

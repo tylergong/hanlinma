@@ -36946,7 +36946,7 @@ footer p {
 }
 
 .case-background {
-    background: center no-repeat #000;
+    background: center no-repeat #222222;
     background-size: cover;
 }
 
@@ -37068,7 +37068,7 @@ footer p {
 }
 
 .about-background {
-    background: center #000 no-repeat;
+    background: center #222222 no-repeat;
     background-size: cover;
     overflow: hidden;
 }
