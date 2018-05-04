@@ -1,0 +1,95 @@
+{extend name='main'/}
+{block name='content'}
+<div class="met-banner banner-ny-h" data-height='' style=''>
+    <div class="slick-slide">
+        <img class="cover-image" src="__STATIC__/index/picture/1510649531.jpg" sizes="(max-width: 767px) 767px" alt="新闻资讯">
+    </div>
+</div>
+<section class="met-content animsition">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 met-cons">
+
+                <div class="met-position  pattern-show">
+                    <div class="container">
+                        <div class="row">
+                            <ol class="breadcrumb">
+                                <li>
+                                    <a href="{:url('/')}" title="首页">
+                                        <i class="icon wb-home" aria-hidden="true"></i>首页
+                                    </a>
+                                </li>
+                                {if condition="$articleData['father']['cname']"}
+                                <li class="dropdown">
+                                    {$articleData['father']['cname']}
+                                </li>
+                                {/if}
+                                <li class="dropdown">
+                                    {if condition="$articleData['pid']==24 || $articleData['pid']==16"}
+                                    <a href="{:url('index/Lists/index',['cid'=>$articleData['cid']])}"
+                                       title="{$articleData['cname']}">
+                                        {$articleData['cname']}
+                                    </a>
+                                    {else/}
+                                    {$articleData['cname']}
+                                    {/if}
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="met-shownews-header">
+                    <h1>{$articleData['title']}</h1>
+                    <!--<div class="info">-->
+                        <!--<span><i class="fa fa-calendar"></i>{$articleData['create_time']|date="Y-m-d H:i:s",###}</span>-->
+                        <!--<span><i class="fa fa-pencil-square"></i>{$articleData['author']}</span>-->
+                        <!--<span><i class="icon wb-eye"></i>{$articleData['click_num']}</span>-->
+                    <!--</div>-->
+                </div>
+
+                <div class="met-editor lazyload clearfix">
+                    <div class="editorlightgallery">
+                        {$articleData['content']}
+                    </div>
+                </div>
+
+                <!--<div class="met-shownews-footer">-->
+                <!--<ul class="pager pager-round">-->
+                <!--<li class="previous ">-->
+                <!--<a href="" title="2017国际瑜伽康复理疗峰会干货满满、大咖云集">-->
+                <!--上一篇-->
+                <!--<span aria-hidden="true" class="hidden-xs">：2017国际瑜伽康复理疗峰会干货满满、大咖云集</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--<li class="next ">-->
+                <!--<a href="" title="2017北京 首届中国瑜伽康复经营发展大会">-->
+                <!--下一篇-->
+                <!--<span aria-hidden="true" class="hidden-xs">：2017北京 首届中国瑜伽康复经营发展大会</span>-->
+                <!--</a>-->
+                <!--</li>-->
+                <!--</ul>-->
+                <!--</div>-->
+
+            </div>
+            <!--<div class="col-md-3 met-conx">-->
+                <!--<div class="met-information">-->
+                    <!--<h3>最新动态</h3>-->
+                    <!--<ul>-->
+                        <!--{foreach name='_newArticleData' key='k' item='v'}-->
+                        <!--<li>-->
+                            <!--<h6>-->
+                                <!--<a href="{:url('index/Details/index',['aid'=>$v['id']])}" target="_blank"-->
+                                   <!--title="{$v['title']}">-->
+                                    <!--{$v['title']}-->
+                                <!--</a>-->
+                            <!--</h6>-->
+                        <!--</li>-->
+                        <!--{/foreach}-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+</section>
+{/block}

@@ -53,10 +53,8 @@
                 <label for="" class="col-sm-2 control-label">是否显示</label>
                 <div class="col-sm-9">
                     <select class="js-example-basic-single form-control" name="is_show">
-                        <option value="1" {if condition="$oldData.is_show==1" }selected{
-                        /if}>显示</option>
-                        <option value="0" {if condition="$oldData.is_show==0" }selected{
-                        /if}>不显示</option>
+                        <option value="1" {if condition="$oldData.is_show==1" }selected{/if}>显示</option>
+                        <option value="0" {if condition="$oldData.is_show==0" }selected{/if}>不显示</option>
                     </select>
                 </div>
             </div>

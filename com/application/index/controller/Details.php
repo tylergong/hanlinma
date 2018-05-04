@@ -38,7 +38,18 @@ class Details extends Common {
         $webSet['description'] = $articleData['title'] . ',' . $webSet['description'];
         $this->assign('_webSet', $webSet);
 
-        return $this->fetch();
+        if (in_array($article_id, [1, 2, 3])) {
+            return $this->fetch('index2');
+        } else if (in_array($article_id, [5, 6, 7])) {
+            return $this->fetch('index3');
+        } else if (in_array($article_id, [8, 9, 10, 11])) {
+            return $this->fetch('index4');
+        } else if (in_array($article_id, [12, 13, 14, 15])) {
+            return $this->fetch('index5');
+        } else {
+            return $this->fetch();
+        }
+
     }
 
 }
