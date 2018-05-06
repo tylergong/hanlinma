@@ -13,6 +13,9 @@ return [
     '__pattern__' => [
         'name' => '\w+',
     ],
+    '__alias__' =>  [
+        'special'  =>  'index/Special',
+    ],
     '[a]' => [
         ':aid' => ['index/Details/index', ['method' => 'get'], ['id' => '\d+']],
     ],
